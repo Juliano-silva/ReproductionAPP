@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reproduction APP</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="../static/Arquivos/Icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../static/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body id="BodyBody">
+    <input type="checkbox" id="BtnSidebarCheck">
+    <label for="BtnSidebarCheck">
+        <h1 id="BtnOpen">☰</h1>
+    </label>
+    <div id="Sidebar">
+        <a href="/Index" target="Rota_Principal">Player</a>
+        <a href="/Adicionar" target="Rota_Principal">Adicionar</a>
+        <a href="/Sobre" target="Rota_Principal">Sobre</a>
+        <div id="Border">
+            <input type="text" id="BackgroundsText">
+            <button onclick="Salvar()">Salvar</button>
+            <input type="file" id="BackgroundsFile" style="display: none;" onchange="previewFile()"
+                accept=".jpg, .jpeg, .png .gif">
+            <label for="BackgroundsFile" id="FileLabel">Image via Arquivo</label>
+            <div id="EscolherBK">Escolher um Background</div>
+        </div>
+    </div>
+    <div>
+    </div>
+    <div id="Corpo_Backgrounds">
+        <h1>Escolha seu Plano de Fundo</h1>
+        <div id="BackgroundsC"></div>
+        <br>
+    </div>
+    <iframe src="/Index" name="Rota_Principal" frameborder="0"></iframe>
+</body>
+<script src="../static/Sidebar.js"></script>
+<script src="../static/Sidebar.js"></script>
+<script src="../static/Background.js"></script>
+</html>

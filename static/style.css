@@ -1,0 +1,847 @@
+* {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+body{
+  background-color: black;
+}
+/* Style Padrão */
+input[type="checkbox"] {
+  display: none;
+}
+#BodyBody{
+  overflow: hidden;
+}
+body {
+  width: 100%;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  -webkit-backdrop-filter: blur(8vh);
+  color: white;;
+}
+
+iframe {
+  width: 100%;
+  height: 100vh;
+}
+
+body::-webkit-scrollbar {
+  width: 0px;
+}
+
+i {
+  color: white;
+}
+
+/* Backgrounds */
+#Border {
+  border: 0.2vh solid transparent;
+  height: 78%;
+  overflow: auto;
+}
+#Border::-webkit-scrollbar{
+  width: 0px;
+}
+#BackgroundsText{
+  all: unset;
+  height: 4vh;
+  width: 90%;
+  border: 0.3vh solid yellow;
+  border-radius: 2vh;
+  font-size: 2vh;
+  cursor: auto;
+  margin-top: 2vh;
+  text-decoration: none;
+  text-align: center;
+}
+#ImageFile{
+  display: none;
+}
+#FileLabel,#FileLabel2{
+  display: block;
+  border: 0.2vh solid yellow;
+  width: 80%;
+  margin: auto;
+  margin-top: 2vh;
+  cursor: pointer;
+  padding: 1vh;
+  font-size: 2vh;
+  color: rgb(153, 235, 235);
+  background: #221553;
+}
+#FileLabel2{
+  text-align: center;
+  font-size: 4vh;
+}
+#Corpo_Backgrounds{
+  position: fixed;
+  display: none;
+  border: 0.2vh solid transparent;
+  background-color: #191138;
+  width: 100%;
+  height: 100%;
+  padding: 2vh;
+}
+#Corpo_Backgrounds::-webkit-scrollbar{
+  width: 0px;
+}
+#BackgroundsC{
+  border: 0.2vh solid transparent;
+  width: 170vh;
+  display: block;
+  margin: auto;
+}
+#BackgroundsC > img{
+  width: 40vh;
+  height: 40vh;
+  margin-top: 2vh;
+  display: inline-block;
+  margin-left: 2vh;
+  cursor: pointer;
+}
+#EscolherBK{
+  padding: 2vh;
+  width: 80%;
+  position: absolute;
+  margin-top: 1vh;
+  font-size: 2vh;
+  background-color: rgb(35, 32, 58);
+  color: #ffff00;
+  bottom: 0;
+  margin-left: 1vh;
+}
+#Border>button, #UploadFiles {
+  border: 0.3vh solid;
+  border-image: conic-gradient(from var(--angle), rgb(201, 201, 61), yellow, rgb(192, 192, 34), rgb(255, 255, 48)) 1;
+  display: block;
+  margin: auto;
+  margin-top: 1vh;
+  font-size: 2.5vh;
+  width: 80%;
+  color: #ffff00;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+#UploadFiles{
+  background: #0d0c0e;
+  width: 80%;
+}
+#Body_Upload{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+#Corpo_Upload{
+  width: 50vh;
+  border-radius: 2vh;
+  padding: 2vh;
+}
+#Blood{
+  color: yellow;
+}
+#Border>button:hover{
+  background: purple;
+}
+button {
+  all: unset;
+}
+
+#Backgrounds {
+  border: 0.2vh solid #34285f;
+  border-radius: 1vh;
+  overflow: auto;
+  height: 85%;
+  margin-top: 1vh;
+}
+#Backgrounds::-webkit-scrollbar{
+  width: 0px;
+}
+#Listar,#Listar2{
+  color: white;
+  width: 80%;
+  text-align: center;
+  display: block;
+  margin: auto;
+  font-size: 3vh;
+  padding: 2vh;
+}
+#Listar2{
+  font-size: 5vh;
+  padding: 2vh;
+}
+/* Templete */
+#Templete {
+  height: 10vh;
+  width: 100%;
+  border-top: 0.2vh solid ;
+  background-color: #252531;
+  position: fixed;
+  z-index: 2;
+  bottom: 0;
+  overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  --angle: 0deg;
+  border-image: conic-gradient(from var(--angle),black,white,yellow,white,black) 1;
+  animation: 10s rotate linear infinite;
+  display: none;
+}
+#Configurations{
+  border: 0.2vh solid transparent;
+  top: 0;
+  position: absolute;
+  font-size: 2vh;
+  right: 0;
+  margin-right: 1vh;
+  color: #ebeb10;
+  text-align: left;
+  text-shadow: 0.1vh 0.1vh 0.2vh black;
+}
+#Conteúdo_Templete>button,
+#Conteúdo_Templete>i,#Conteúdo_Templete>label>i {
+  display: inline-block;
+  margin-left: 1vh;
+  overflow: hidden;
+  cursor: pointer;
+}
+#Conteúdo_Templete{
+  position: absolute;
+  border: 0.1vh solid transparent;
+  margin-top: 5.5vh;
+  margin-left: 12vh;  
+  overflow: hidden;
+  font-size: 3vh;
+}
+
+#Recomeçar {
+  display: inline-block;
+}
+
+#Templete>img {
+  width: 9vh;
+  height: 9vh;
+  margin-top: 0.5vh;
+  margin-left: 1vh;
+  position: fixed;
+  border-radius: 50%;
+}
+
+#TP_Name {
+  border: 0.1vh solid transparent;
+  width: 65%;
+  overflow: hidden;
+  margin-left: 12vh;
+  height: 5vh;
+  font-size: 4vh;
+  color: yellow;
+  text-shadow: 0.1vh 0.1vh 0.1vh purple;
+  position: absolute;
+}
+
+#Templete>h1 {
+  display: inline-block;
+}
+#Random {
+  border: 0.1vh solid white;
+  margin-top: 20vh;
+}
+
+#F {
+  display: none;
+}
+
+#BtnMute {
+  display: none;
+  margin: auto;
+}
+
+/* Boxs */
+#Boxs {
+  border-bottom: 0.4vh solid;
+  --angle: 0deg;
+  border-image: conic-gradient(from var(--angle), red, rgb(190, 7, 7), yellow, aqua, purple, yellow, orange) 1;
+  animation: 5s rotate linear infinite;
+  width: 100%;
+  display: block;
+  margin: auto;
+  background-color: #0d0c0e;
+  filter: opacity(95%);
+  cursor: pointer;
+  height: 32vh;
+  padding: 2vh;
+}
+
+#Boxs::-webkit-scrollbar {
+  width: 0px;
+}
+
+#Musicas::-webkit-scrollbar {
+  width: 0px;
+}
+
+#Labeis>i {
+  position: absolute;
+  position: unset;
+  margin-top: 3vh;
+  left: 0;
+  margin-left: 5vh;
+}
+
+.Image {
+  width: 30vh;
+  height: 30vh;
+  border-radius: 2vh;
+  top: 0;
+  filter: opacity(96%);
+  margin-top: 3vh;
+  margin-left: 2.4vh;
+  position: absolute;
+}
+
+/* CaixaTexto */
+#CaixaTexto>h1,
+#CaixaTexto>h2,
+#Buscando,
+#AbrirBK,
+#FecharBK{
+  text-align: center;
+  border: 0.1vh solid transparent;
+  color: yellow;
+  text-shadow: 0.1vh 0.1vh 0.1vh black;
+  width: 70%;
+  display: block;
+  margin: auto;
+  margin-top: 4vh;
+  font-size: 6vh;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+#CaixaTexto>h1,
+#CaixaTexto>h2{
+  font-size: 6vh;
+  text-align: center;
+}
+#CaixaTexto>h1{
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 100%;
+}
+#CaixaTexto>h2 {
+  margin-top: 1vh;
+}
+#CaixaTexto{
+  border: 0.2vh solid transparent;
+  width: 64%;
+  display: block;
+  margin: auto;
+  height: 30vh;
+}
+#CaixaTexto::-webkit-scrollbar{
+  width: 0px;
+}
+/* Sidebar */
+#Sidebar {
+  border: 0.2vh solid transparent;
+  color: white;
+  background: #1b1827;
+  text-decoration: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 30vh;
+  height: 99.7%;
+  text-align: center;
+  transform: translate(60vh);
+  transition: 1s;
+  cursor: pointer;
+  overflow: hidden;
+}
+.IMGSidebar{
+  width: 80%;
+  height: 20vh;
+  display: block;
+  margin: auto;
+  border-radius: 2vh;
+  margin-top: 1vh;
+}
+#Sidebar>a {
+  display: block;
+  margin-top: 2vh;
+  text-decoration: none;
+  text-align: left;
+  margin-left: 2vh;
+  color: #a5a519;
+  text-shadow: 0.1vh 0.1vh 0.1vh black;
+  font-size: 3vh;
+}
+#Sidebar>a:hover{
+  color: rgb(228, 243, 15);
+  font-size: 5vh;
+}
+#BtnOpen{
+  all: unset;
+  right: 0;
+  position: fixed;
+  color: white;
+  cursor: pointer;
+  z-index: 1;
+  font-size: 10vh;
+  margin-top: -2vh;
+  margin-right: 1vh;
+}
+
+/* MusicaPrincipal */
+#MusicaPrincipal {
+  background-color: #121218;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  position: absolute;
+  z-index: 2;
+  display: none;
+}
+#Avançar{
+  border: 0.1vh solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  width: 60%;
+  margin: auto;
+}
+#FrenteP,#TrásP{
+    cursor: pointer;
+    z-index: 1;
+    top: 0;
+    font-size: 20vh;
+}
+#MusicaPrincipal::-webkit-scrollbar {
+  width: 0px;
+}
+
+
+#FecharPrincipal {
+  position: absolute;
+  font-size: 10vh;
+  top: 0;
+  left: 0;
+  margin-left: 2vh;
+  margin-top: -2vh;
+  cursor: pointer;
+  color: red;
+  text-shadow: 0.1vh 0.1vh 0.1vh black;
+}
+
+#play2,
+#Pausar2{
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    top: 0;
+    width: 40vh;
+    height: 40vh;
+}
+#Pausar2 {
+  display: flex;
+  margin: auto;
+}
+#play2 {
+  display: none;
+}
+#MV {
+  position: absolute;
+  right: 0;
+  margin-right: 2vh;
+  margin-top: 2vh;
+}
+
+#ImagesPrincipal {
+  width: 60vh;
+  height: 60vh;
+  display: block;
+  margin: auto;
+  margin-top: 4vh;
+  border-radius: 50%;
+  -webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 15s linear infinite;
+}
+@-moz-keyframes spin { 
+  100% { -moz-transform: rotate(360deg); } 
+}
+@-webkit-keyframes spin { 
+  100% { -webkit-transform: rotate(360deg); } 
+}
+@keyframes spin { 
+  100% { 
+      -webkit-transform: rotate(360deg); 
+      transform:rotate(360deg); 
+  } 
+}
+#TextosPrincipal,#TextosPrincipal > h1{
+  text-align: center;
+  font-size: 5vh;
+  color: rgb(226, 226, 24);
+  text-shadow: 0.1vh 0.1vh 0.1vh blue;
+  padding: 1vh;
+  width: 90%;
+  display: block;
+  margin: auto;
+  margin-top: 2vh;
+}
+
+.LetraMusic {
+  font-size: 0px;
+}
+/* Audio */
+.progress_bar {
+  height: 3vh;
+  width: 80%;
+  display: block;
+  margin: auto;
+  margin-top: 1vh;
+  border-radius: 2vh;
+  overflow: hidden;
+  background-color: rgb(58, 8, 45);
+}
+
+.progressed {
+  height: 10vh;
+  background: rgb(167, 12, 167);
+  width: 50%;
+  transition: all 0.1ms;
+  position: relative;
+}
+
+.progressed::after {
+  content: '';
+  position: absolute;
+  right: -1vh;
+  top: -0vh;
+  width: 20px;
+  height: 3vh;
+  border-radius: 10px;
+  background-color: rgb(235, 49, 16);
+}
+
+/* Sobre */
+#Sobre {
+  background: rgb(25, 23, 36);
+  color: white;
+}
+#Sobre>img {
+  display: block;
+  margin: auto;
+  margin-top: 1vh;
+  width: 60vh;
+  height: 60vh;
+  border-radius: 50%;
+}
+
+#Sobre>h2 {
+  text-align: center;
+  margin-top: 1vh;
+  font-size: 10vh;
+  color: yellow;
+  filter: drop-shadow(0.1vh 0.1vh 0.1vh #ffffff);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#Sobre>hr {
+  width: 50%;
+  display: block;
+  margin: auto;
+  margin-top: 3vh;
+  height: 0.1vh;
+  color: #aaa;
+  border: transparent;
+  background-color: #aaa;
+}
+
+#Sobre>h1,#Corpo_Backgrounds > h1{
+  color: #ffff00;
+  text-shadow: 0.1vh 0.1vh 0.1vh #0505ac;
+  text-align: center;
+  font-size: 6vh;
+  margin-top: 1vh;
+}
+
+#Sobre>h6 {
+  color: #ffff00;
+  text-shadow: 0.1vh 0.1vh 0.1vh #040468;
+  text-align: center;
+  font-size: 2vh;
+  margin-top: 1vh;
+
+}
+
+#Sobre>details>summary {
+  list-style: none;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 0.5vh;
+  font-size: 3vh;
+}
+
+#Sobre>details {
+  font-size: 1.5vh;
+  text-align: justify;
+  width: 80%;
+  display: block;
+  margin: auto;
+}
+
+/* Adicionar */
+#Adicionar {
+  background: rgb(25, 23, 36);
+}
+
+#Adicionar>div>h1,#Veh1{
+  text-align: center;
+  padding: 2vh;
+  font-size: 9vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: drop-shadow(0.1vh 0.1vh 0.1vh #ffff00);
+  text-shadow: 0.2vh 0.2vh 0.2vh #ffff00;
+  color: transparent;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  -webkit-background-clip: text;
+  margin-top: 2.5vh;
+}
+#Veh1{
+  font-size: 5vh;
+  padding: 0;
+}
+#AdicionarInput,#BackgroundsMusicP {
+  all: unset;
+  display: block;
+  margin: auto;
+  margin-top: 2vh;
+  width: 80%;
+  padding: 2vh;
+  text-align: center;
+  border: 0.2vh solid #ffffff;
+  background: rgb(33, 30, 48);
+  color: #ffff00;
+  font-size: 2vh;
+  border-radius: 2vh;
+}
+#AdicionarInput::placeholder{
+  color: yellow;
+}
+#BackgroundsMusicP{
+  margin-top: 12vh;
+}
+
+#AdicionarButton {
+  cursor: pointer;
+}
+#Search::placeholder{
+  font-size: 2vh;
+}
+#AdicionarButton,#file,#SalvarPrincipal {
+  border: 0.3vh solid;
+  border-image: conic-gradient(from var(--angle), rgb(201, 201, 61), yellow, rgb(192, 192, 34), rgb(255, 255, 48)) 1;
+  text-shadow: 0.2vh 0.2vh 0.2vh #ffff00;
+  padding: 2vh;
+  display: block;
+  margin: auto;
+  margin-top: 3vh;
+  font-size: 5vh;
+  width: 32vh;
+  color: #ffff00;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  background: rgb(33, 30, 48);
+  text-decoration: none;
+}
+
+#AdicionarButton:hover,#file:hover {
+  animation: transition 0.5s infinite;
+}
+
+@keyframes transition {
+  0% {
+    filter: invert(1);
+  }
+
+  100% {
+    filter: invert(0);
+  }
+}
+
+#Corpo_Adicionar{
+  position: absolute;
+  border: 0.2vh solid #ebeb10;
+  border-radius: 2vh;
+  background: rgb(24, 22, 37);
+  width: 80%;
+  left: 50%;
+  top: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  height: 50vh;
+}
+#Volume{
+  -webkit-appearance: none;  
+  appearance: none;
+  width: 60vh;
+  height: 2vh;
+  background: rgb(24, 22, 37);
+  outline: none; 
+  opacity: 0.7; 
+  -webkit-transition: .2s; 
+  transition: opacity .2s;
+  position: absolute;
+  margin-left: 58vh;
+  margin-top: 5.6vh;
+  border: 0.5vh solid;
+  --angle: 0deg;
+  border-image: conic-gradient(from var(--angle), red, rgb(190, 7, 7), yellow, aqua, purple, yellow, orange) 1;  
+  animation: 5s rotate linear infinite;
+  overflow: hidden;
+}
+
+#Volume:hover,#PlayBack:hover{
+  opacity: 1;
+}
+#Volume::-webkit-slider-thumb,#PlayBack::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1.8vh;
+  height: 1.8vh; 
+  background: purple;
+  border: 0.4vh solid gold;
+  cursor: pointer; 
+  border-radius: 50%;
+}
+#PlayBack::-webkit-slider-thumb{
+  width: 3.5vh;
+  height: 3.5vh;
+}
+#PlayBack{
+  -webkit-appearance: none;  
+  appearance: none;
+  width: 50vh;
+  height: 4vh;
+  background: rgb(24, 22, 37);
+  outline: none; 
+  opacity: 0.7; 
+  -webkit-transition: .2s; 
+  transition: opacity .2s;
+  border: 0.5vh solid;
+  --angle: 0deg;
+  border-image: conic-gradient(from var(--angle), red, rgb(190, 7, 7), yellow, aqua, purple, yellow, orange) 1;  
+  animation: 5s rotate linear infinite;
+  overflow: hidden;
+  display: block;
+  margin: auto;
+  margin-top: 5vh;
+}
+/* ConfigAbas */
+#ConfigAbas{
+  height: auto;
+  background-color: #0d0c0e;
+  filter: opacity(90%);
+  border-bottom: 0.3vh solid transparent;
+  --angle: 0deg;
+  border-image: conic-gradient(from var(--angle), red, rgb(190, 7, 7), yellow, aqua, purple, yellow, orange) 1;  
+  animation: 5s rotate linear infinite;
+  padding: 2vh;
+}
+#Search{
+  border: 0.3vh solid #ebeb10;
+  background: rgb(24, 22, 37);
+  display: block;
+  margin: auto;
+  margin-top: 2vh;
+  height: 5vh;
+  width: 90%;
+  text-align: center;
+  color:whitesmoke;
+}
+#Buscando,#AbrirBK,#FecharBK{
+  margin-top: 0px;
+  border: 0.6vh solid yellow;
+  margin-top: 3vh;
+  width: 40vh;
+  padding: 1vh;
+  border-radius: 5vh;
+  cursor: pointer;
+}
+#FecharBK{
+  display: none;
+}
+#EscolhaSeta{
+  position: absolute;
+}
+#EscolhaSeta > button{
+  display: block;
+  font-size: 5vh;
+  cursor: pointer;
+  color: yellow;
+  margin-left: 1vh;
+  text-shadow: 0.1vh 0.1vh 0.1vh blue;
+}
+#TextosPrincipal > button{
+  display: block;
+  margin: auto;
+}
+.BtnHide{
+  display: block;
+  margin: auto;
+  margin-top: 2vh;
+  border: 0.3vh solid yellow;
+  font-size: 3vh;
+  color: cyan;
+  width: 20vh;
+  text-align: center;
+  padding: 1vh;
+  border-radius: 20vh;
+}
+#BackgroundsMuiscP{
+  border: 0.2vh solid rgb(13, 10, 37);
+  width: 80%;
+  display: block;
+  margin: auto;
+  margin-top: 2vh;
+  border-radius: 2vh;
+  background: rgb(13, 10, 37);
+  padding: 2vh;
+}
+#BackgroundsMuiscP > img{
+  width: 30vh;
+  height: 30vh;
+  margin-top: 2vh;
+  display: inline-block;
+  margin-left: 2.5vh;
+}
+#CorpoMP{
+  display: none;
+}
+/* Animation Border */
+@keyframes rotate {
+  to {
+    --angle: 360deg;
+  }
+}
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}

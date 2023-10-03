@@ -1,0 +1,14 @@
+var Musicas = document.getElementById("Musicas")
+var API_KEY = '36367067-43a20686ec62df15e47b5919d';
+
+fetch("/DadosMusic").then(function (response) {
+    response.json().then(async (data) => {
+        var MinhasMusicas = JSON.parse(JSON.stringify(data))
+        for (var i = 0; i < MinhasMusicas.Name_Music.length; i++) {
+            Player.src = `/music/${MinhasMusicas.Name_Music[i]}`
+            Player.controls = true
+            // Image.src = `/Fotos/${MinhasMusicas.Galeria[i]}`
+            Musicas.append(Player)
+        }
+    })
+})
