@@ -34,4 +34,5 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
+    icon=['C:\\Users\\sustu\\OneDrive\\Imagens\\Imagens , Backgrounds e capturas de tela\\Icon.jpg'],
 )

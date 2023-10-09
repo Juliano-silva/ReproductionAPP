@@ -40,6 +40,10 @@ def index():
 def Add():
     return render_template("Adicionar.html")
 
+@app.route("/Background",methods=["GET","POST"])
+def Bk():
+    return render_template("Backgrounds.html")
+
 @app.route("/AddMusic",methods=["POST"])
 def AddMusic():
     data = request.get_json()
@@ -52,10 +56,6 @@ def AddMusic():
     print(yt.title + "has been successfully downloaded.")
     return '',201
 
-@app.route("/Sobre",methods=["GET"])
-def sobre():
-    return render_template("Sobre.html")
-
 @app.route('/AddURL', methods=['POST'])
 def AddUrl():
    datas = request.get_json()
@@ -64,6 +64,13 @@ def AddUrl():
    Random = random.randint(0,100000)
    urllib.request.urlretrieve(result, Galeria + "\\" + f"{Random}.png")
    return '',201
+
+@app.route("/RemoveFunc",methods=['POST'])
+def Remover():
+    datas = request.get_json()
+    result = datas['value']
+    os.remove(Diretorio + "\\" + result)
+    return '',201
 
 @app.route('/music/<path:filename>')
 def MusicFolder(filename):
@@ -80,5 +87,5 @@ def Music():
     return jsonify(dados)
 if __name__ == "__main__":
     webview.start(debug=False,private_mode=False,http_server=True)
-    # app.run()
+    # app.run(debug=True)
     # debug=False

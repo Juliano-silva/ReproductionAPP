@@ -49,7 +49,7 @@ for(var i = 0; i < JSONBK;i++){
         imgBKM.classList = `IMGSidebar`
     }else{
         imgBKM.id = "IMGSidebarError"
-        document.querySelectorAll("#IMGSidebarError").forEach(el => el.style.display = "none")
+        imgBKM.style.display = "none"
     }
     BKCORPO.append(imgBKM)
     imgBKM.addEventListener("click",function(){

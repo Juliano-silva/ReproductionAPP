@@ -56,11 +56,11 @@
    'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
    'linguagens\\Reproduction_APP\\main.py',
    'PYSOURCE'),
-  ('webview\\lib\\runtimes\\win-x64\\native\\WebView2Loader.dll',
-   'C:\\Users\\sustu\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\webview\\lib\\runtimes\\win-x64\\native\\WebView2Loader.dll',
-   'BINARY'),
   ('webview\\lib\\WebBrowserInterop.x86.dll',
    'C:\\Users\\sustu\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\webview\\lib\\WebBrowserInterop.x86.dll',
+   'BINARY'),
+  ('webview\\lib\\runtimes\\win-arm64\\native\\WebView2Loader.dll',
+   'C:\\Users\\sustu\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\webview\\lib\\runtimes\\win-arm64\\native\\WebView2Loader.dll',
    'BINARY'),
   ('webview\\lib\\Microsoft.Web.WebView2.Core.dll',
    'C:\\Users\\sustu\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\webview\\lib\\Microsoft.Web.WebView2.Core.dll',
@@ -68,8 +68,8 @@
   ('webview\\lib\\Microsoft.Web.WebView2.WinForms.dll',
    'C:\\Users\\sustu\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\webview\\lib\\Microsoft.Web.WebView2.WinForms.dll',
    'BINARY'),
-  ('webview\\lib\\runtimes\\win-arm64\\native\\WebView2Loader.dll',
-   'C:\\Users\\sustu\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\webview\\lib\\runtimes\\win-arm64\\native\\WebView2Loader.dll',
+  ('webview\\lib\\runtimes\\win-x64\\native\\WebView2Loader.dll',
+   'C:\\Users\\sustu\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\webview\\lib\\runtimes\\win-x64\\native\\WebView2Loader.dll',
    'BINARY'),
   ('webview\\lib\\runtimes\\win-x86\\native\\WebView2Loader.dll',
    'C:\\Users\\sustu\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\webview\\lib\\runtimes\\win-x86\\native\\WebView2Loader.dll',
@@ -159,17 +159,21 @@
    'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
    'linguagens\\Reproduction_APP\\static\\Add.js',
    'DATA'),
-  ('static\\Arquivos\\Icon.png',
+  ('static\\Arquivos\\Past.png',
    'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
-   'linguagens\\Reproduction_APP\\static\\Arquivos\\Icon.png',
+   'linguagens\\Reproduction_APP\\static\\Arquivos\\Past.png',
    'DATA'),
-  ('static\\Arquivos\\Pause.png',
+  ('static\\Arquivos\\Voltar.png',
    'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
-   'linguagens\\Reproduction_APP\\static\\Arquivos\\Pause.png',
+   'linguagens\\Reproduction_APP\\static\\Arquivos\\Voltar.png',
    'DATA'),
-  ('static\\Arquivos\\Play.png',
+  ('static\\Arquivos\\pause.png',
    'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
-   'linguagens\\Reproduction_APP\\static\\Arquivos\\Play.png',
+   'linguagens\\Reproduction_APP\\static\\Arquivos\\pause.png',
+   'DATA'),
+  ('static\\Arquivos\\play.png',
+   'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
+   'linguagens\\Reproduction_APP\\static\\Arquivos\\play.png',
    'DATA'),
   ('static\\Background.js',
    'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
@@ -187,17 +191,57 @@
    'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
    'linguagens\\Reproduction_APP\\static\\Imagens\\.jpg',
    'DATA'),
+  ('static\\Imagens\\11438.png',
+   'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
+   'linguagens\\Reproduction_APP\\static\\Imagens\\11438.png',
+   'DATA'),
   ('static\\Imagens\\13822.png',
    'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
    'linguagens\\Reproduction_APP\\static\\Imagens\\13822.png',
+   'DATA'),
+  ('static\\Imagens\\14104.png',
+   'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
+   'linguagens\\Reproduction_APP\\static\\Imagens\\14104.png',
+   'DATA'),
+  ('static\\Imagens\\19143.png',
+   'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
+   'linguagens\\Reproduction_APP\\static\\Imagens\\19143.png',
+   'DATA'),
+  ('static\\Imagens\\23270.png',
+   'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
+   'linguagens\\Reproduction_APP\\static\\Imagens\\23270.png',
+   'DATA'),
+  ('static\\Imagens\\27981.png',
+   'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
+   'linguagens\\Reproduction_APP\\static\\Imagens\\27981.png',
+   'DATA'),
+  ('static\\Imagens\\29180.png',
+   'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
+   'linguagens\\Reproduction_APP\\static\\Imagens\\29180.png',
    'DATA'),
   ('static\\Imagens\\2f96a7313acb7158ef677f834360eebe.gif',
    'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
    'linguagens\\Reproduction_APP\\static\\Imagens\\2f96a7313acb7158ef677f834360eebe.gif',
    'DATA'),
+  ('static\\Imagens\\35199.png',
+   'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
+   'linguagens\\Reproduction_APP\\static\\Imagens\\35199.png',
+   'DATA'),
+  ('static\\Imagens\\3524.png',
+   'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
+   'linguagens\\Reproduction_APP\\static\\Imagens\\3524.png',
+   'DATA'),
   ('static\\Imagens\\35394.png',
    'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
    'linguagens\\Reproduction_APP\\static\\Imagens\\35394.png',
+   'DATA'),
+  ('static\\Imagens\\47514.png',
+   'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
+   'linguagens\\Reproduction_APP\\static\\Imagens\\47514.png',
+   'DATA'),
+  ('static\\Imagens\\50739.png',
+   'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
+   'linguagens\\Reproduction_APP\\static\\Imagens\\50739.png',
    'DATA'),
   ('static\\Imagens\\53664.png',
    'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
@@ -207,6 +251,14 @@
    'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
    'linguagens\\Reproduction_APP\\static\\Imagens\\62514.png',
    'DATA'),
+  ('static\\Imagens\\66037.png',
+   'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
+   'linguagens\\Reproduction_APP\\static\\Imagens\\66037.png',
+   'DATA'),
+  ('static\\Imagens\\67687.png',
+   'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
+   'linguagens\\Reproduction_APP\\static\\Imagens\\67687.png',
+   'DATA'),
   ('static\\Imagens\\77214.png',
    'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
    'linguagens\\Reproduction_APP\\static\\Imagens\\77214.png',
@@ -215,54 +267,21 @@
    'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
    'linguagens\\Reproduction_APP\\static\\Imagens\\79420.png',
    'DATA'),
+  ('static\\Imagens\\88573.png',
+   'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
+   'linguagens\\Reproduction_APP\\static\\Imagens\\88573.png',
+   'DATA'),
+  ('static\\Imagens\\92384.png',
+   'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
+   'linguagens\\Reproduction_APP\\static\\Imagens\\92384.png',
+   'DATA'),
+  ('static\\Imagens\\d9556cfe0b0c8da4d4819986a174459f.jpg',
+   'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
+   'linguagens\\Reproduction_APP\\static\\Imagens\\d9556cfe0b0c8da4d4819986a174459f.jpg',
+   'DATA'),
   ('static\\Sidebar.js',
    'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
    'linguagens\\Reproduction_APP\\static\\Sidebar.js',
-   'DATA'),
-  ('static\\music\\Arco-Íris  Douma (Kimetsu no Yaiba)  Kaito.mp3',
-   'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
-   'linguagens\\Reproduction_APP\\static\\music\\Arco-Íris  Douma (Kimetsu no '
-   'Yaiba)  Kaito.mp3',
-   'DATA'),
-  ('static\\music\\BIG CRACK (UN)HOLY REUNION - MC VV FT LUCKHAOS (PROD '
-   'EF).mp3',
-   'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
-   'linguagens\\Reproduction_APP\\static\\music\\BIG CRACK (UN)HOLY REUNION - '
-   'MC VV FT LUCKHAOS (PROD EF).mp3',
-   'DATA'),
-  ('static\\music\\Bater de Palmas  Aoi Todo (Jujutsu Kaisen)  Kaito.mp3',
-   'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
-   'linguagens\\Reproduction_APP\\static\\music\\Bater de Palmas  Aoi Todo '
-   '(Jujutsu Kaisen)  Kaito.mp3',
-   'DATA'),
-  ('static\\music\\Can You Feel My Heart.mp3',
-   'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
-   'linguagens\\Reproduction_APP\\static\\music\\Can You Feel My Heart.mp3',
-   'DATA'),
-  ('static\\music\\One Piece - Opening 21  Super Powers.mp3',
-   'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
-   'linguagens\\Reproduction_APP\\static\\music\\One Piece - Opening 21  Super '
-   'Powers.mp3',
-   'DATA'),
-  ('static\\music\\Paradox  Survive Said The Prophet ヴィンランド・サガ SEASON 2 '
-   'コラボレーションMV.mp3',
-   'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
-   'linguagens\\Reproduction_APP\\static\\music\\Paradox  Survive Said The '
-   'Prophet ヴィンランド・サガ SEASON 2 コラボレーションMV.mp3',
-   'DATA'),
-  ('static\\music\\Pulo Catraca - MC VV ft Yung Shelby (Prod JANGO).mp3',
-   'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
-   'linguagens\\Reproduction_APP\\static\\music\\Pulo Catraca - MC VV ft Yung '
-   'Shelby (Prod JANGO).mp3',
-   'DATA'),
-  ('static\\music\\Querido.mp3',
-   'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
-   'linguagens\\Reproduction_APP\\static\\music\\Querido.mp3',
-   'DATA'),
-  ('static\\music\\Shaman - Crescer (FLCL) Feat @Shinysz.mp3',
-   'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
-   'linguagens\\Reproduction_APP\\static\\music\\Shaman - Crescer (FLCL) Feat '
-   '@Shinysz.mp3',
    'DATA'),
   ('static\\script.js',
    'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
@@ -276,13 +295,13 @@
    'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
    'linguagens\\Reproduction_APP\\templates\\Adicionar.html',
    'DATA'),
+  ('templates\\Backgrounds.html',
+   'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
+   'linguagens\\Reproduction_APP\\templates\\Backgrounds.html',
+   'DATA'),
   ('templates\\Home.html',
    'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
    'linguagens\\Reproduction_APP\\templates\\Home.html',
-   'DATA'),
-  ('templates\\Sobre.html',
-   'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
-   'linguagens\\Reproduction_APP\\templates\\Sobre.html',
    'DATA'),
   ('templates\\index.html',
    'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
@@ -292,8 +311,53 @@
    'C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes '
    'linguagens\\Reproduction_APP\\build\\main\\base_library.zip',
    'DATA'),
+  ('setuptools-65.5.0.dist-info\\top_level.txt',
+   'C:\\Users\\sustu\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\setuptools-65.5.0.dist-info\\top_level.txt',
+   'DATA'),
+  ('flask-2.3.3.dist-info\\WHEEL',
+   'C:\\Users\\sustu\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\flask-2.3.3.dist-info\\WHEEL',
+   'DATA'),
+  ('setuptools-65.5.0.dist-info\\INSTALLER',
+   'C:\\Users\\sustu\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\setuptools-65.5.0.dist-info\\INSTALLER',
+   'DATA'),
+  ('setuptools-65.5.0.dist-info\\RECORD',
+   'C:\\Users\\sustu\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\setuptools-65.5.0.dist-info\\RECORD',
+   'DATA'),
+  ('setuptools-65.5.0.dist-info\\entry_points.txt',
+   'C:\\Users\\sustu\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\setuptools-65.5.0.dist-info\\entry_points.txt',
+   'DATA'),
+  ('werkzeug-2.3.7.dist-info\\METADATA',
+   'C:\\Users\\sustu\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\werkzeug-2.3.7.dist-info\\METADATA',
+   'DATA'),
+  ('flask-2.3.3.dist-info\\REQUESTED',
+   'C:\\Users\\sustu\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\flask-2.3.3.dist-info\\REQUESTED',
+   'DATA'),
+  ('setuptools-65.5.0.dist-info\\WHEEL',
+   'C:\\Users\\sustu\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\setuptools-65.5.0.dist-info\\WHEEL',
+   'DATA'),
   ('werkzeug-2.3.7.dist-info\\RECORD',
    'C:\\Users\\sustu\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\werkzeug-2.3.7.dist-info\\RECORD',
+   'DATA'),
+  ('werkzeug-2.3.7.dist-info\\INSTALLER',
+   'C:\\Users\\sustu\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\werkzeug-2.3.7.dist-info\\INSTALLER',
+   'DATA'),
+  ('setuptools-65.5.0.dist-info\\REQUESTED',
+   'C:\\Users\\sustu\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\setuptools-65.5.0.dist-info\\REQUESTED',
+   'DATA'),
+  ('flask-2.3.3.dist-info\\entry_points.txt',
+   'C:\\Users\\sustu\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\flask-2.3.3.dist-info\\entry_points.txt',
+   'DATA'),
+  ('flask-2.3.3.dist-info\\INSTALLER',
+   'C:\\Users\\sustu\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\flask-2.3.3.dist-info\\INSTALLER',
+   'DATA'),
+  ('flask-2.3.3.dist-info\\METADATA',
+   'C:\\Users\\sustu\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\flask-2.3.3.dist-info\\METADATA',
+   'DATA'),
+  ('setuptools-65.5.0.dist-info\\LICENSE',
+   'C:\\Users\\sustu\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\setuptools-65.5.0.dist-info\\LICENSE',
+   'DATA'),
+  ('werkzeug-2.3.7.dist-info\\LICENSE.rst',
+   'C:\\Users\\sustu\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\werkzeug-2.3.7.dist-info\\LICENSE.rst',
    'DATA'),
   ('werkzeug-2.3.7.dist-info\\WHEEL',
    'C:\\Users\\sustu\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\werkzeug-2.3.7.dist-info\\WHEEL',
@@ -301,56 +365,11 @@
   ('flask-2.3.3.dist-info\\RECORD',
    'C:\\Users\\sustu\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\flask-2.3.3.dist-info\\RECORD',
    'DATA'),
-  ('flask-2.3.3.dist-info\\REQUESTED',
-   'C:\\Users\\sustu\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\flask-2.3.3.dist-info\\REQUESTED',
-   'DATA'),
-  ('setuptools-65.5.0.dist-info\\REQUESTED',
-   'C:\\Users\\sustu\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\setuptools-65.5.0.dist-info\\REQUESTED',
-   'DATA'),
-  ('werkzeug-2.3.7.dist-info\\LICENSE.rst',
-   'C:\\Users\\sustu\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\werkzeug-2.3.7.dist-info\\LICENSE.rst',
-   'DATA'),
-  ('setuptools-65.5.0.dist-info\\WHEEL',
-   'C:\\Users\\sustu\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\setuptools-65.5.0.dist-info\\WHEEL',
-   'DATA'),
-  ('setuptools-65.5.0.dist-info\\LICENSE',
-   'C:\\Users\\sustu\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\setuptools-65.5.0.dist-info\\LICENSE',
-   'DATA'),
-  ('flask-2.3.3.dist-info\\entry_points.txt',
-   'C:\\Users\\sustu\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\flask-2.3.3.dist-info\\entry_points.txt',
-   'DATA'),
-  ('setuptools-65.5.0.dist-info\\RECORD',
-   'C:\\Users\\sustu\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\setuptools-65.5.0.dist-info\\RECORD',
-   'DATA'),
-  ('setuptools-65.5.0.dist-info\\INSTALLER',
-   'C:\\Users\\sustu\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\setuptools-65.5.0.dist-info\\INSTALLER',
-   'DATA'),
-  ('flask-2.3.3.dist-info\\INSTALLER',
-   'C:\\Users\\sustu\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\flask-2.3.3.dist-info\\INSTALLER',
-   'DATA'),
-  ('setuptools-65.5.0.dist-info\\top_level.txt',
-   'C:\\Users\\sustu\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\setuptools-65.5.0.dist-info\\top_level.txt',
-   'DATA'),
-  ('werkzeug-2.3.7.dist-info\\METADATA',
-   'C:\\Users\\sustu\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\werkzeug-2.3.7.dist-info\\METADATA',
-   'DATA'),
-  ('flask-2.3.3.dist-info\\WHEEL',
-   'C:\\Users\\sustu\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\flask-2.3.3.dist-info\\WHEEL',
-   'DATA'),
-  ('setuptools-65.5.0.dist-info\\entry_points.txt',
-   'C:\\Users\\sustu\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\setuptools-65.5.0.dist-info\\entry_points.txt',
-   'DATA'),
   ('flask-2.3.3.dist-info\\LICENSE.rst',
    'C:\\Users\\sustu\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\flask-2.3.3.dist-info\\LICENSE.rst',
    'DATA'),
-  ('flask-2.3.3.dist-info\\METADATA',
-   'C:\\Users\\sustu\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\flask-2.3.3.dist-info\\METADATA',
-   'DATA'),
   ('setuptools-65.5.0.dist-info\\METADATA',
    'C:\\Users\\sustu\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\setuptools-65.5.0.dist-info\\METADATA',
-   'DATA'),
-  ('werkzeug-2.3.7.dist-info\\INSTALLER',
-   'C:\\Users\\sustu\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\werkzeug-2.3.7.dist-info\\INSTALLER',
    'DATA')],
  'python311.dll',
  False,
