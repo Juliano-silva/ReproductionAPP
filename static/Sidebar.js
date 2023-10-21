@@ -15,10 +15,6 @@ EscolherBK.addEventListener("click", function () {
     CorpoBk.style.display = "block"
     Sidebar.style.display = "none"
 })
-
-var Tocandas = localStorage.getItem("Tocandas")
-Quantidade.innerHTML = Tocandas + " Vezes"
-
 var Data = new Date()
 var hh = Data.getHours()
 var mm = Data.getMinutes()

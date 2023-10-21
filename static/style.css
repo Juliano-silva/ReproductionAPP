@@ -77,7 +77,7 @@ i {
 }
 
 #BackgroundsC {
-  border: 0.2vh solid white;
+  border: 0.2vh solid transparent;
   width: 89%;
   display: flex;
   flex-flow: row wrap;
@@ -93,6 +93,7 @@ i {
   padding: 2vh;
   cursor: pointer;
   flex-flow: row nowrap;
+  border-radius: 6vh;
 }
 
 #EscolherBK {
@@ -280,15 +281,15 @@ button {
 }
 
 /* Boxs */
-#Boxs,#PlaylistConteudos > div {
+#Boxs,#Sobre {
   width: 100%;
   display: block;
   margin: auto;
   background: rgba(0, 0, 0, 0.77);
   filter: opacity(95%);
   cursor: pointer;
-  height: 32vh;
   padding: 2vh;
+  overflow: hidden;
 }
 
 #Boxs::-webkit-scrollbar {
@@ -307,9 +308,9 @@ button {
   margin-left: 5vh;
 }
 
-.Image,#PlaylistConteudos > div > img {
-  width: 30vh;
-  height: 30vh;
+.Image{
+  width: 20vh;
+  height: 17.6vh;
   border-radius: 3vh;
   top: 0;
   margin-top: 2vh;
@@ -324,37 +325,86 @@ button {
   margin-left: 2vh;
 }
 
-/* CaixaTexto */
-#IDss {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  font-family: 'Holtwood One SC', serif;
-  align-items: center;
-  float: left;
-  font-size: 3.5vh;
-  width: 5%;
-  height: 100%;
+/* Playlist */
+#Caixa_Playlist{
+  border: 0.2vh solid white;
+  padding: 2vh;
+  margin-top: 4vh;
 }
 
+#Playlist_List{
+  background-color: rgb(14, 1, 26);
+  filter: opacity(0.8);
+  padding: 2vh;
+  font-family: 'Holtwood One SC', serif;
+}
+#Playlist_List > h1{
+  color: yellow;
+  font-size: 5vh;
+  text-align: center;
+}
+#Playlist_List > li{
+  filter: opacity(0.9);
+  text-align: center;
+  cursor: pointer;
+  font-size: 5vh;
+  width: 80%;
+  color: white;
+  margin: auto;
+  margin-top: 1vh;
+  word-wrap: break-word;
+  border-radius: 2vh;
+}
+#Playlist_List > li:hover{
+  border: 0.1vh solid yellow;
+  background-color: #392875;
+}
+.Playlist_Itens{
+  border: 0.2vh solid white;
+  background-color: black;
+  color: yellow;
+  width: 20vh;
+}
+
+.PlayBox{
+  border: 0.2vh solid white;
+  background-color: #0505ac;
+  color: yellow;
+  padding: 2vh;
+  margin-top: 2vh;
+  cursor: pointer;
+}
+
+.Box_Create{
+  border: 0.2vh solid white;
+  margin-top: 2vh;
+  padding: 2vh;
+}
+
+/* CaixaTexto */
 #CaixaTexto>h1,
 #CaixaTexto>h2{
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 3.2vh;
+  font-size:2.6vh;
   margin: auto;
   margin-top: 2vh;
-  width: 90vh;
+  width: 120vh;
+  height: 2vh;
   color: #FFF;
   text-align: center;
   font-family: 'Holtwood One SC', serif;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  padding: 2vh;
+  overflow: auto;
   overflow: auto;
   border: 0.2vh solid transparent;
+  overflow: hidden;
 }
+
 #CaixaTexto > input,#CaixaTexto > button{
   all: unset;
   position: absolute;
@@ -368,12 +418,32 @@ button {
   background-color: transparent;
 }
 #CaixaTexto > button{
-  margin-top: 20vh;
+  margin-top: 10vh;
+  font-size: 3vh;
+  margin-right: 50vh;
 }
 #CaixaTexto>h2 {
   color: green;
 }
 
+#IDss,#CaixaTexto > input {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-family: 'Holtwood One SC', serif;
+  align-items: center;
+  float: left;
+  font-size: 3.5vh;
+  width: 5%;
+  height: 16vh;
+  border: 0.1vh solid transparent;
+}
+
+#CaixaTexto > input{
+  float: right;
+  font-size: 4vh;
+  margin-top: -0.8vh;
+}
 
 /* Sidebar */
 #Sidebar {
@@ -398,14 +468,14 @@ button {
   color: #FFF;
   text-align: center;
   font-family: 'Holtwood One SC', serif;
-  font-size: 1.6vh;
+  font-size: 1.4vh;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  width: 80%;
+  width: 90%;
   display: block;
   margin: auto;
-  margin-top: 2vh;
+  margin-top: 4.5vh;
 }
 
 :is(#QuantideDiv, #TempoDiv)>h1>span {
@@ -450,7 +520,7 @@ button {
 }
 
 #HeaderSidebar>h1,
-#Corpo_Backgrounds>h1 {
+#Corpo_Backgrounds>h1,#Caixa_de_Sobre>h2 {
   color: #FFF;
   font-family: 'Holtwood One SC', serif;
   font-size: 4vh;
@@ -519,8 +589,8 @@ button {
 
 #TrásP>img,
 #FrenteP>img {
-  width: 50vh;
-  height: 50vh;
+  width: 30vh;
+  height: 30vh;
 }
 
 #MusicaPrincipal::-webkit-scrollbar {
@@ -542,8 +612,8 @@ button {
 #play2,
 #Pausar2 {
   cursor: pointer;
-  width: 40vh;
-  height: 40vh;
+  width: 20vh;
+  height: 20vh;
 }
 
 #Pausar2 {
@@ -673,21 +743,19 @@ button {
 }
 
 /* Sobre */
-#Sobre {
-  background: rgb(25, 23, 36);
-  color: white;
+#Sobre{
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  display: flex;
 }
-
 #Sobre>img {
-  display: block;
-  margin: auto;
-  margin-top: 1vh;
-  width: 60vh;
-  height: 60vh;
-  border-radius: 50%;
+  float: left;
+  width: 50%;
+  height: 100%;
 }
 
-#Sobre>h2 {
+#Caixa_de_Sobre>h2,#Caixa_de_Sobre>h3{
   text-align: center;
   margin-top: 1vh;
   font-size: 10vh;
@@ -695,8 +763,10 @@ button {
   filter: drop-shadow(0.1vh 0.1vh 0.1vh #ffffff);
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-
-#Sobre>hr {
+#Caixa_de_Sobre>h3{
+  font-size: 6vh;
+}
+#Caixa_de_Sobre>hr {
   width: 50%;
   display: block;
   margin: auto;
@@ -707,33 +777,38 @@ button {
   background-color: #aaa;
 }
 
-#Sobre>h1 {
+#Caixa_de_Sobre>h1 {
   color: #ffff00;
   text-shadow: 0.1vh 0.1vh 0.1vh #0505ac;
   text-align: center;
-  font-size: 6vh;
+  font-size: 4vh;
   margin-top: 1vh;
 }
 
-#Sobre>h6 {
+#Caixa_de_Sobre>h6 {
   color: #ffff00;
   text-shadow: 0.1vh 0.1vh 0.1vh #040468;
   text-align: center;
-  font-size: 2vh;
-  margin-top: 1vh;
+  font-size: 3vh;
+  margin-top: 2vh;
 
 }
 
-#Sobre>details>summary {
+#Caixa_de_Sobre>details>summary {
   list-style: none;
   cursor: pointer;
   text-align: center;
   margin-top: 0.5vh;
   font-size: 3vh;
 }
-
-#Sobre>details {
-  font-size: 1.5vh;
+#Caixa_de_Sobre{
+  float: right;
+  overflow: hidden;
+  width: 45%;
+  margin-top: 5%;
+}
+#Caixa_de_Sobre>details {
+  font-size: 2vh;
   text-align: justify;
   width: 80%;
   display: block;
@@ -760,8 +835,8 @@ button {
 #BackgroundsMusicP {
   all: unset;
   border: 0.2vh solid rgb(12, 3, 48);
-  border-bottom: 1vh solid rgb(5, 127, 136);
-  background-color: rgb(13, 5, 43);
+  border-bottom: 0.6vh solid rgb(5, 127, 136);
+  background-color: rgb(15, 4, 53);
   font-family: "Holtwood One SC", serif;
   text-align: left;
   padding: 2vh;
@@ -788,8 +863,10 @@ button {
   text-align: center;
 }
 
-#AdicionarInput:focus {
+:is(#BackgroundsMusicP, #AdicionarInput, #BackgroundsText):focus {
+  background-color: #03035f;
   border-bottom-color: white;
+  color: yellow;
 }
 
 #BackgroundsMusicP {

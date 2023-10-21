@@ -1,2 +1,7 @@
 import os
-os.system("Python C:/Users/sustu/OneDrive/Imagens/Programação/Projetos com diferentes linguagens/Reproduction_APP/main.py")
+os.makedirs("C:\\Users\\sustu\\Reproduction_Folder")
+existe = os.path.exists("C:\\Users\\sustu\\Reproduction_Folder")
+if(existe == False):
+    print("False")
+else:
+    print("True")

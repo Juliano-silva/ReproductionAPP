@@ -1,5 +1,8 @@
+var array = []
 function Baixar() {
-    alert("Música Baixada")
+    if(localStorage.Musicas){
+        array = JSON.parse(localStorage.getItem("Musicas"))
+    }
     var value = document.getElementById('AdicionarInput').value;
     $.ajax({
         url: '/AddMusic',
@@ -7,4 +10,6 @@ function Baixar() {
         contentType: 'application/json',
         data: JSON.stringify({ 'value': value })
     });
+    array.push(value)
+    localStorage.Musicas = JSON.stringify(array)
 }

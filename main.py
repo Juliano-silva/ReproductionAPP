@@ -7,14 +7,22 @@ import os
 import ctypes
 import random
 import urllib.request
+from winotify import Notification
 # App stuff
 app = Flask(__name__)
-webview.create_window('Reproduction', app ,http_port=6969,js_api=True,minimized=True)
-
+webview.create_window('Reproduction', app,resizable=True,width=1000,height=600 ,http_port=6969,js_api=True,minimized=True,on_top=True)
 #Routers
 Diretorio = "C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes linguagens\\Reproduction_APP\\static\\music"
 
 Galeria = "C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes linguagens\\Reproduction_APP\\static\\Imagens"
+
+existe = os.path.exists("C:\\Users\\sustu\\Reproduction_Folder")
+if(existe == False):
+    os.makedirs("C:\\Users\\sustu\\Reproduction_Folder")
+    Arquivo = open('C:/Users/sustu/Reproduction_Folder/db.json','x',encoding="utf-8")
+else:
+    print("Arquivo Criado")
+
 @app.route("/",methods=["GET","POST"])
 def home():
     return render_template("Home.html")
@@ -44,6 +52,14 @@ def Add():
 def Bk():
     return render_template("Backgrounds.html")
 
+@app.route("/Playlist",methods=["GET","POST"])
+def Playlist():
+    return render_template("Playlist.html")
+
+@app.route("/Sobre",methods=["GET","POST"])
+def Sob():
+    return render_template("Sobre.html")
+
 @app.route("/AddMusic",methods=["POST"])
 def AddMusic():
     data = request.get_json()
@@ -54,6 +70,16 @@ def AddMusic():
     new_file = base + '.mp3'
     os.rename(out_file, new_file)
     print(yt.title + "has been successfully downloaded.")
+    return '',201
+
+@app.route("/Notificar",methods=["GET","POST"])
+def Notificar():
+    Monstrar = Notification(app_id="Reproduction",
+                       title="Olá,Mundo",
+                       msg="HelloWord!",
+                       duration="short",
+                       icon="https://i.pinimg.com/564x/c8/e9/ca/c8e9ca9d08d66cb052008b7bf776f4d7.jpg")
+    Monstrar.show()
     return '',201
 
 @app.route('/AddURL', methods=['POST'])
@@ -80,12 +106,13 @@ def MusicFolder(filename):
 def ImageFolder(filename):
     return send_from_directory(Galeria + "\\",filename)
 
+
 @app.route("/DadosMusic",methods=["GET"])
 def Music():
     with open("C:/Users/sustu/OneDrive/Imagens/Programação/Projetos com diferentes linguagens/Reproduction_APP/db.json",encoding="utf-8") as meu_json:
         dados = json.load(meu_json)
     return jsonify(dados)
+
 if __name__ == "__main__":
-    webview.start(debug=False,private_mode=False,http_server=True)
-    # app.run(debug=True)
-    # debug=False
+    # webview.start(debug=False,private_mode=False,http_server=True)
+    app.run(debug=True)

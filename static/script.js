@@ -35,25 +35,25 @@ fetch("/DadosMusic").then(function (response) {
             var artistas = MusicReplace.toLowerCase().replace("amv", "")
             var MusicTirar = artistas
             var ArtistRenovado = MusicTirar?.trim()
-            var Renovado = ArtistRenovado.slice(0,ArtistRenovado.indexOf("-")).replace(/\s/, "-").replace(/ /g,"")
+            var Renovado = ArtistRenovado.slice(0, ArtistRenovado.indexOf("-")).replace(/\s/, "-").replace(/ /g, "")
             // Música
             var Musics = MusicReplace.toLowerCase().replace("mp3", "")
             var MusicsTirar = Musics
             var MusicRodar = MusicsTirar.slice().replace(".", "").replace(/[0-9]/g, "").replace("_", "")
             var MusicDefinit = MusicRodar?.trim()
-            var MusicRenovada = MusicDefinit.slice(ArtistRenovado.indexOf("-"),ArtistRenovado.length).replace(/\s/, "-").replace(/ /g,"-").replace("--","")
-            if(Renovado.slice(-1) == "-"){
-               Renovado =  Renovado.slice(0,-1) 
+            var MusicRenovada = MusicDefinit.slice(ArtistRenovado.indexOf("-"), ArtistRenovado.length).replace(/\s/, "-").replace(/ /g, "-").replace("--", "")
+            if (Renovado.slice(-1) == "-") {
+                Renovado = Renovado.slice(0, -1)
             }
-            if(MusicRenovada.indexOf("(")){
+            if (MusicRenovada.indexOf("(")) {
                 var MusicAchar = MusicRenovada.indexOf("(")
-                MusicRenovada = MusicRenovada.slice(MusicRenovada,MusicAchar)
+                MusicRenovada = MusicRenovada.slice(MusicRenovada, MusicAchar)
             }
-            if(MusicRenovada.slice(-1) == "-"){
-                MusicRenovada =  MusicRenovada.slice(0,-1) 
-             }
+            if (MusicRenovada.slice(-1) == "-") {
+                MusicRenovada = MusicRenovada.slice(0, -1)
+            }
             // Link da Api do Vagalume
-            var LINKVAGALUME = "https://api.vagalume.com.br/search.php"+"?art="+Renovado+"&mus="+MusicRenovada + `&apikey=${Key}`
+            var LINKVAGALUME = "https://api.vagalume.com.br/search.php" + "?art=" + Renovado + "&mus=" + MusicRenovada + `&apikey=${Key}`
             const respose = await fetch(LINKVAGALUME)
             const jsonData = await respose.json()
             var Dados = document.createElement("h2")
@@ -94,10 +94,15 @@ fetch("/DadosMusic").then(function (response) {
             LabelPlayePause.setAttribute("for", `PPause${Id}`)
             LabelPlayePause.id = `Labeis${Id}`
             // Imagens
+            // var BuscarImg = localStorage.getItem("Musicas")
+            // const ImageURL = JSON.parse(BuscarImg)[i]
+
+            // .replace("https://music.youtube.com/watch?v=", "").replace("https://www.youtube.com/watch?v=", "").slice(0, 11)
             Image.id = `Image${Id}`
             Image.className = "Image"
             var EscolhaImg = Math.floor(Math.random() * MinhasMusicas.Galeria.length)
-            TPImage.src = ImagesPrincipal.src = Image.src = `/Fotos/${MinhasMusicas.Galeria[EscolhaImg]}`
+            TPImage.src = ImagesPrincipal.src = Image.src = "/Fotos/" + MinhasMusicas.Galeria[EscolhaImg]
+            // `http://img.youtube.com/vi/${ImageURL}/mqdefault.jpg`
             // Play e Pause Function
             var Contador = localStorage.getItem("Tocandas")
             if (Contador < 0 || Contador === null) {
@@ -136,7 +141,7 @@ fetch("/DadosMusic").then(function (response) {
                 Pause2.style.display = "flex"
             })
             // Remove Function
-            Remove.addEventListener("click",Remover)
+            Remove.addEventListener("click", Remover)
             function Remover() {
                 location.reload()
                 var value = this.id;
@@ -158,7 +163,7 @@ fetch("/DadosMusic").then(function (response) {
                 document.querySelectorAll('audio').forEach(el => el.playbackRate = ValorPlay)
             })
             var NormalVolume = document.getElementById("NormalVolume")
-            NormalVolume.addEventListener("click",function(){
+            NormalVolume.addEventListener("click", function () {
                 Volume.value = "0.5"
                 document.querySelectorAll('audio').forEach(el => el.volume = "0.5");
             })
@@ -176,30 +181,33 @@ fetch("/DadosMusic").then(function (response) {
                 }
             })
             // Play e Pause Event
-            document.getElementById("BtnPauseEvent").addEventListener("click",function(){
-                    ORIGINAL.pause()
-                    document.getElementById("BtnPauseEvent").style.display = "none"
-                    document.getElementById("BtnPlayEvent").style.display = "inline-block"
+            document.getElementById("BtnPauseEvent").addEventListener("click", function () {
+                ORIGINAL.pause()
+                document.getElementById("BtnPauseEvent").style.display = "none"
+                document.getElementById("BtnPlayEvent").style.display = "inline-block"
             })
-            document.getElementById("BtnPlayEvent").addEventListener("click",function(){
+            document.getElementById("BtnPlayEvent").addEventListener("click", function () {
                 ORIGINAL.play()
                 document.getElementById("BtnPauseEvent").style.display = "inline-block"
                 document.getElementById("BtnPlayEvent").style.display = "none"
             })
-            document.getElementById("BtnPlayEvent").addEventListener("click",function(){
+            document.getElementById("BtnPlayEvent").addEventListener("click", function () {
                 ORIGINAL.play()
             })
-            document.getElementById("BtnPauseEvent").addEventListener("click",function(){
+            document.getElementById("BtnPauseEvent").addEventListener("click", function () {
                 ORIGINAL.pause()
             })
             var progressed = document.getElementById("progressed")
             var progress_bar = document.getElementById("progress_bar")
+
             ORIGINAL.ontimeupdate = function () {
                 progressed.style.width = Math.floor(ORIGINAL.currentTime * 100 / ORIGINAL.duration) + "%";
             }
+
             progress_bar.onclick = function (e) {
                 ORIGINAL.currentTime = ((e.offsetX / progress_bar.offsetWidth) * ORIGINAL.duration)
             }
+
             // Random Music
             Randomizando.addEventListener("click", function () {
                 var MusicRandom = Math.floor(Math.random() * MinhasMusicas.Name_Music.length)
@@ -215,6 +223,34 @@ fetch("/DadosMusic").then(function (response) {
                 var MusicIDs = this.id.replace("PPause", '')
                 var Junção = `/music/${MinhasMusicas.Name_Music[MusicIDs]}`
                 document.getElementById("TP_Name").innerHTML = MinhasMusicas.Name_Music[MusicIDs].replace(".mp3", "").replace(".m4a", "").replace(/[0-9]/g, "").replace("amv", "").replace("kbps", "").replace("(", "").replace(")", "")
+                // AddPlaylist
+                if (localStorage.Playlist) {
+                    var LocalPlaylist = localStorage.getItem("Playlist")
+                    var SelectPlay = document.createElement("ol")
+                    var PlaylistH1 = document.createElement("h1")
+                    PlaylistH1.innerText = "Playlist Adicionar"
+                    SelectPlay.append(PlaylistH1)
+                    for (var Play = 0; Play < JSON.parse(LocalPlaylist).length; Play++) {
+                        var OptionPlay = document.createElement("li")
+                        OptionPlay.innerText = JSON.parse(LocalPlaylist)[Play].Name
+                        OptionPlay.id = MusicIDs
+                        OptionPlay.className = Play
+                        SelectPlay.id = "Playlist_List"
+                        OptionPlay.addEventListener("click", function () {
+                            alert("Música Adicionada com Sucesso")
+                            var Edit;
+                            if (localStorage.getItem("Playlist") == null) {
+                                Edit = []
+                            } else {
+                                Edit = JSON.parse(localStorage.getItem("Playlist"))
+                            }
+                            Edit[this.className].Lista += this.id + ","
+                            localStorage.setItem("Playlist", JSON.stringify(Edit))
+                        })
+                        SelectPlay.append(OptionPlay)
+                        document.getElementById("PlaylistHome").append(SelectPlay)
+                    }
+                }
                 FecharPrincipal.addEventListener("click", function () {
                     document.getElementById("MusicaPrincipal").style.display = "none"
                     document.getElementById("Templete").style.display = "block"
@@ -227,22 +263,28 @@ fetch("/DadosMusic").then(function (response) {
                         duration = ORIGINAL.duration
                     })
                     // Passar Próxima e Frente Event
-                    document.getElementById("Frente").addEventListener("click",Frente)
-                    document.getElementById("FrenteP").addEventListener("click",Frente)
-                    ORIGINAL.addEventListener("ended",Frente)
+                    document.getElementById("Frente").addEventListener("click", Frente)
+                    document.getElementById("FrenteP").addEventListener("click", Frente)
+                    ORIGINAL.addEventListener("ended", Frente)
                     // Trás Events
                     document.getElementById("TrásP").addEventListener("click", Tras)
                     document.getElementById("Trás").addEventListener("click", Tras)
                     // Frente function
-                    function Frente(){
+                    ORIGINAL.addEventListener("error",function(){
+                        alert("Tivemos um Problema")
+                        location.reload()
+                    })
+                    function Frente() {
                         localStorage.setItem("Tocandas", count)
                         count++
                         if (MusicIDs < MinhasMusicas.Name_Music.length) {
                             MusicIDs++
                             ORIGINAL.src = `/music/${MinhasMusicas.Name_Music[MusicIDs]}`
+                            document.querySelectorAll("#Playlist_List > li").forEach(el => el.id = `${MusicIDs}`)
                         } else {
                             MusicIDs++
                             ORIGINAL.src = `/music/${MinhasMusicas.Name_Music[MusicIDs = 0]}`
+                            document.querySelectorAll("#Playlist_List > li").forEach(el => el.id = `${MusicIDs}`)
                         }
                         var BuscarMusicIds = MinhasMusicas.Name_Music[MusicIDs].replace(".mp3", "").replace(".m4a", "").replace(/[0-9]/g, "").replace("amv", "").replace("(", "").replace(")", "").replace("kbps", "")
                         document.getElementById("TextosPrincipal").innerHTML = BuscarMusicIds
@@ -252,14 +294,16 @@ fetch("/DadosMusic").then(function (response) {
                         ORIGINAL.play()
                     }
                     // Trás Function
-                    function Tras(){
+                    function Tras() {
                         localStorage.setItem("Tocandas", count)
                         count++
                         if (MusicIDs >= 0) {
                             MusicIDs--
                             ORIGINAL.src = `/music/${MinhasMusicas.Name_Music[MusicIDs]}`
+                            document.querySelectorAll("#Playlist_List > li").forEach(el => el.id = `${MusicIDs}`)
                         } else {
                             ORIGINAL.src = `/music/${MinhasMusicas.Name_Music[MusicIDs = 0]}`
+                            document.querySelectorAll("#Playlist_List > li").forEach(el => el.id = `${MusicIDs}`)
                         }
                         var BuscarMusicIds = MinhasMusicas.Name_Music[MusicIDs].replace(".mp3", "").replace(".m4a", "").replace(/[0-9]/g, "").replace("amv", "").replace("(", "").replace(")", "").replace("kbps", "")
                         document.getElementById("TP_Name").innerHTML = BuscarMusicIds
@@ -282,8 +326,8 @@ fetch("/DadosMusic").then(function (response) {
                 }
             })
             // Append
-            CaixadeTexto.append( Titulo, Dados, Letra,Remove)
-            Box.append(IDNum,PlayePause,Image, CaixadeTexto, music)
+            CaixadeTexto.append(Titulo, Dados, Letra, Remove)
+            Box.append(IDNum, PlayePause, Image, CaixadeTexto, music)
             LabelPlayePause.append(Box)
             Musicas.append(LabelPlayePause)
         }
