@@ -1,25 +1,20 @@
 #Dependencies
 from flask import Flask,render_template,session,redirect,url_for,jsonify,request,send_from_directory
-import webview
-import json
 from pytube import YouTube
-import os
-import ctypes
-import random
-import urllib.request
+import os , glob , json , webview , ctypes , random , urllib.request
 from winotify import Notification
 # App stuff
 app = Flask(__name__)
 webview.create_window('Reproduction', app,resizable=True,width=1000,height=600 ,http_port=6969,js_api=True,minimized=True,on_top=True)
 #Routers
-Diretorio = "C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes linguagens\\Reproduction_APP\\static\\music"
+Diretorio = "C:\\Reproduction_Folder\\music"
 
-Galeria = "C:\\Users\\sustu\\OneDrive\\Imagens\\Programação\\Projetos com diferentes linguagens\\Reproduction_APP\\static\\Imagens"
+Galeria = "C:\\Reproduction_Folder\\Imagens"
 
-existe = os.path.exists("C:\\Users\\sustu\\Reproduction_Folder")
+existe = os.path.exists("C:\\Reproduction_Folder")
 if(existe == False):
-    os.makedirs("C:\\Users\\sustu\\Reproduction_Folder")
-    Arquivo = open('C:/Users/sustu/Reproduction_Folder/db.json','x',encoding="utf-8")
+    os.makedirs("C:\\Reproduction_Folder")
+    Arquivo = open('C:/Reproduction_Folder/db.json','x',encoding="utf-8")
 else:
     print("Arquivo Criado")
 
@@ -29,19 +24,16 @@ def home():
 
 @app.route("/Index",methods=["GET","POST"])
 def index():
-    arquivos = []
     Mural = []
-    for nome_do_arquivo in os.listdir(Diretorio):
-        eda = os.path.join(Diretorio,nome_do_arquivo)
-        if(os.path.isfile(eda)):
-            arquivos.append(nome_do_arquivo)
+    files = list(filter(os.path.isfile, glob.glob(Diretorio + "\\*"))) 
+    files.sort(key=os.path.getctime) 
     for nome_do_arquivo in os.listdir(Galeria):
         eda = os.path.join(Galeria,nome_do_arquivo)
         if(os.path.isfile(eda)):
             Mural.append(nome_do_arquivo)
-        with open('C:/Users/sustu/OneDrive/Imagens/Programação/Projetos com diferentes linguagens/Reproduction_APP/db.json','w',encoding="utf-8") as arquivo:
-            Escrito = str('{"Name_Music":' f"{arquivos},'Galeria':{Mural}""}")
-            arquivo.write(Escrito.replace("'",'"'))
+        with open('C:/Reproduction_Folder/db.json','w',encoding="utf-8") as arquivo:
+            Escrito = str('{"Name_Music":' f"{files},'Galeria':{Mural}""}")
+            arquivo.write(Escrito.replace("\\","").replace("C:Reproduction_Foldermusic","").replace("'",'"'))
     return render_template("index.html")
 
 @app.route("/Adicionar",methods=["GET","POST"])
@@ -65,22 +57,19 @@ def AddMusic():
     data = request.get_json()
     yt = YouTube(str(data['value']))
     video = yt.streams.filter(only_audio=True).first()
-    out_file = video.download(output_path="C:/Users/sustu/OneDrive/Imagens/Programação/Projetos com diferentes linguagens/Reproduction_APP/static/music")
+    out_file = video.download(output_path="C:/Reproduction_Folder/music")
     base, ext = os.path.splitext(out_file)
+    Monstrar = Notification(app_id="Reproduction",
+                       title=yt.title,
+                       msg="Música Baixada Com Sucesso",
+                       duration="short",
+                       icon="C:\Reproduction_Folder\ReproductionIcon.jpg")
+    Monstrar.show()
     new_file = base + '.mp3'
     os.rename(out_file, new_file)
     print(yt.title + "has been successfully downloaded.")
-    return '',201
+    return render_template("Adicionar.html")
 
-@app.route("/Notificar",methods=["GET","POST"])
-def Notificar():
-    Monstrar = Notification(app_id="Reproduction",
-                       title="Olá,Mundo",
-                       msg="HelloWord!",
-                       duration="short",
-                       icon="https://i.pinimg.com/564x/c8/e9/ca/c8e9ca9d08d66cb052008b7bf776f4d7.jpg")
-    Monstrar.show()
-    return '',201
 
 @app.route('/AddURL', methods=['POST'])
 def AddUrl():
@@ -109,10 +98,10 @@ def ImageFolder(filename):
 
 @app.route("/DadosMusic",methods=["GET"])
 def Music():
-    with open("C:/Users/sustu/OneDrive/Imagens/Programação/Projetos com diferentes linguagens/Reproduction_APP/db.json",encoding="utf-8") as meu_json:
+    with open("C:/Reproduction_Folder/db.json",encoding="utf-8") as meu_json:
         dados = json.load(meu_json)
     return jsonify(dados)
 
 if __name__ == "__main__":
-    # webview.start(debug=False,private_mode=False,http_server=True)
-    app.run(debug=True)
+    webview.start(debug=True,private_mode=False,http_server=True)
+    # app.run(debug=True)

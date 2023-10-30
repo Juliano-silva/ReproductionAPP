@@ -1,5 +1,6 @@
 var array = []
 function Baixar() {
+    location.reload()
     if(localStorage.Musicas){
         array = JSON.parse(localStorage.getItem("Musicas"))
     }

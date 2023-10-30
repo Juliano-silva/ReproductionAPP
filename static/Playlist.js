@@ -3,6 +3,7 @@ var Diretorio = "/music/"
 var Musicas = document.getElementById("Musicas")
 var API_KEY = '36367067-43a20686ec62df15e47b5919d';
 function Salvar() {
+    location.reload()
     if (localStorage.Playlist) {
         array = JSON.parse(localStorage.getItem("Playlist"))
     }
@@ -19,10 +20,29 @@ fetch("/DadosMusic").then(function (response) {
         for (var i = 0; i < JSON.parse(Buscar).length; i++) {
             var CreateBox = document.createElement("div")
             var Playlist_Title = document.createElement("h1")
+            var Remove = document.createElement("input")
             CreateBox.className = "Box_Create"
             CreateBox.id = i
             Playlist_Title.innerText = JSON.parse(Buscar)[i].Name
+            // Remove
+            Remove.value = "🗑️"
+            Remove.type = "submit"
+            Remove.id = `${i}`
+            Remove.addEventListener("click", Remover)
+            function Remover() {
+                location.reload()
+                var Playlist;
+                if (localStorage.getItem("Playlist") == null) {
+                    Playlist = []
+                } else {
+                    Playlist = JSON.parse(localStorage.getItem("Playlist"))
+                }
+                Playlist.splice(this.id, 1)
+                localStorage.setItem("Playlist", JSON.stringify(Playlist))            
+            }
+            CreateBox.append(Playlist_Title,Remove)
             var MinhasMusicas = JSON.parse(JSON.stringify(data))
+            console.log(JSON.parse(Buscar)[i].Lista);
             for (var q = 0; q < JSON.parse(Buscar)[i].Lista.split(/,(?! )/).length; q++) {
                 var ids = JSON.parse(Buscar)[i].Lista.split(/,(?! )/)[q]
                 // Creates Elements
@@ -34,7 +54,6 @@ fetch("/DadosMusic").then(function (response) {
                 var CaixadeTexto = document.createElement("div")
                 var s = document.createElement("button")
                 var Image = document.createElement("img")
-                var Remove = document.createElement("input")
                 // Get Elements
                 var Recomeçar = document.getElementById("Recomeçar")
                 var Mais5 = document.getElementById("Mais5")
@@ -91,16 +110,12 @@ fetch("/DadosMusic").then(function (response) {
                 Letra.className = `LetraMusic`
                 // Caixa de Texto
                 CaixadeTexto.id = `CaixaTexto`
-                // Remove
-                Remove.value = "🗑️"
-                Remove.type = "submit"
-                Remove.id = MinhasMusicas.Name_Music[i]
                 // Titulo
                 Titulo.innerHTML = MusicReplace
                 Titulo.id = `Titulos${Id}`
                 s.id = `${Id}`
                 // Box
-                Box.id = `Boxs`
+                Box.id = `BoxsPlaylist`
                 // music
                 music.id = `Music${Id}`
                 // Play e Pause
@@ -111,6 +126,12 @@ fetch("/DadosMusic").then(function (response) {
                 LabelPlayePause.setAttribute("for", `PPause${Id}`)
                 LabelPlayePause.id = `Labeis${Id}`
                 LabelPlayePause.className = `PPause${i}`
+
+                // Remover Undefined
+                if (JSON.parse(Buscar)[i].Lista.split(/,(?! )/)[q] == null || JSON.parse(Buscar)[i].Lista.split(/,(?! )/)[q] == undefined ||
+                    JSON.parse(Buscar)[i].Lista.split(/,(?! )/)[q] == "") {
+                    LabelPlayePause.style.display = "none"
+                }
                 // Imagens
                 // var BuscarImg = localStorage.getItem("Musicas")
                 // const ImageURL = JSON.parse(BuscarImg)[i]
@@ -158,18 +179,6 @@ fetch("/DadosMusic").then(function (response) {
                     Play2.style.display = "none"
                     Pause2.style.display = "flex"
                 })
-                // Remove Function
-                Remove.addEventListener("click", Remover)
-                function Remover() {
-                    location.reload()
-                    var value = this.id;
-                    $.ajax({
-                        url: '/RemoveFunc',
-                        type: 'POST',
-                        contentType: 'application/json',
-                        data: JSON.stringify({ 'value': value })
-                    });
-                }
                 // Velocidade
                 var PlayBack = document.getElementById("PlayBack")
                 document.getElementById("NormalPlayBack").addEventListener("click", function () {
@@ -264,6 +273,10 @@ fetch("/DadosMusic").then(function (response) {
                             } else {
                                 ORIGINAL.src = `/music/${MinhasMusicas.Name_Music[ListaAtual = JSON.parse(Buscar)[ListaClass].Lista?.split(/,(?! )/)[EscolhaMusical = 0]]}`
                             }
+
+                            if (EscolhaMusical >= JSON.parse(Buscar)[ListaClass].Lista?.split(/,(?! )/).length) {
+                                ORIGINAL.src = `/music/${MinhasMusicas.Name_Music[ListaAtual = JSON.parse(Buscar)[ListaClass].Lista?.split(/,(?! )/)[EscolhaMusical = 0]]}`
+                            }
                             var BuscarMusicIds = MinhasMusicas.Name_Music[ListaAtual]?.replace(".mp3", "")?.replace(".m4a", "")?.replace(/[0-9]/g, "")?.replace("amv", "")?.replace("(", "")?.replace(")", "")?.replace("kbps", "")
                             document.getElementById("TextosPrincipal").innerHTML = BuscarMusicIds
                             document.getElementById("TP_Name").innerHTML = BuscarMusicIds
@@ -278,6 +291,9 @@ fetch("/DadosMusic").then(function (response) {
                                 var ListaVoltar = JSON.parse(Buscar)[ListaClass].Lista?.split(/,(?! )/)[EscolhaMusical]
                                 ORIGINAL.src = `/music/${MinhasMusicas.Name_Music[ListaVoltar]}`
                             } else {
+                                ORIGINAL.src = `/music/${MinhasMusicas.Name_Music[ListaAtual = JSON.parse(Buscar)[ListaClass].Lista?.split(/,(?! )/)[EscolhaMusical = 0]]}`
+                            }
+                            if (EscolhaMusical >= JSON.parse(Buscar)[ListaClass].Lista?.split(/,(?! )/).length) {
                                 ORIGINAL.src = `/music/${MinhasMusicas.Name_Music[ListaAtual = JSON.parse(Buscar)[ListaClass].Lista?.split(/,(?! )/)[EscolhaMusical = 0]]}`
                             }
                             var BuscarMusicIds = MinhasMusicas.Name_Music[ListaVoltar]?.replace(".mp3", "")?.replace(".m4a", "")?.replace(/[0-9]/g, "")?.replace("amv", "")?.replace("(", "")?.replace(")", "")?.replace("kbps", "")
@@ -298,7 +314,7 @@ fetch("/DadosMusic").then(function (response) {
                     }
                 })
                 // Append
-                CaixadeTexto.append(Titulo, Dados, Letra, Remove)
+                CaixadeTexto.append(Titulo, Dados, Letra)
                 Box.append(PlayePause, Image, CaixadeTexto, music)
                 LabelPlayePause.append(Box)
                 CreateBox.append(LabelPlayePause)
@@ -307,3 +323,6 @@ fetch("/DadosMusic").then(function (response) {
         }
     })
 })
+// Background
+var EscolhaBK = localStorage.getItem("BackgroundEscolhido")
+document.querySelector("body").style.backgroundImage = `url(${EscolhaBK})`
