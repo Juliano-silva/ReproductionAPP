@@ -60,43 +60,34 @@ i {
 
 
 #Corpo_Backgrounds {
-  background: radial-gradient(151.92% 127.02% at 15.32% 21.04%, rgba(165, 239, 255, 0.20) 0%, rgba(110, 191, 244, 0.04) 77.08%, rgba(70, 144, 212, 0.00) 100%);
+  background:   radial-gradient(151.92% 127.02% at 15.32% 21.04%, rgba(165, 239, 255, 0.20) 0%, rgba(110, 191, 244, 0.04) 77.08%, rgba(70, 144, 212, 0.00) 100%);
   backdrop-filter: blur(2.6vh);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: fixed;
-  display: none;
   width: 100%;
   height: 100%;
+  display: none;
+  width: 100%;
+  height: 100vh;
   padding: 2vh;
-  overflow: auto;
 }
 
-#Corpo_Backgrounds::-webkit-scrollbar {
-  width: 0px;
+
+/* Global */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-#BackgroundsC {
-  border: 0.2vh solid transparent;
-  width: 89%;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  margin: auto;
-  height: auto;
-  overflow: auto;
+body {
+  background-color: #000;
 }
 
-#BackgroundsC>img {
-  width: 50vh;
-  height: 50vh;
-  padding: 2vh;
-  cursor: pointer;
-  flex-flow: row nowrap;
-  border-radius: 6vh;
-}
-
+/* Backgrounds */
 #EscolherBK {
   padding: 2vh;
   width: 100%;
@@ -113,7 +104,7 @@ i {
   font-weight: 400;
   line-height: normal;
 }
-
+#ButtonRemove,
 #Border>button,
 #UploadFiles {
   border: 0.3vh solid;
@@ -151,7 +142,7 @@ i {
   color: yellow;
 }
 
-#Border>button:hover {
+#Border>button:hover,#ButtonRemove:hover {
   background: purple;
 }
 
@@ -185,6 +176,51 @@ button {
 #Listar2 {
   font-size: 5vh;
   padding: 2vh;
+}
+
+/* Search */
+#Search {
+  border: 0.3vh solid #ebeb10;
+  background: rgb(24, 22, 37);
+  display: block;
+  margin: auto;
+  margin-top: 2vh;
+  height: 5vh;
+  width: 85%;
+  font-size: 4vh;
+  text-align: center;
+  border-radius: 1vh;
+  resize: none;
+  color: whitesmoke;
+  overflow: hidden;
+}
+#Search_DIV{
+  background: rgba(0, 0, 0, 0.77);
+  filter: opacity(98%);
+  width: 100%;
+  padding: 2vh;
+}
+
+#DIVAERROR{
+  background-color: #0D0C0E;
+  width: 100%;
+  height: 100vh;
+}
+
+#TITULOERROR{
+  width: 100%;
+height: 90vh;
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+font-size: 8vh;
+color: yellow;
+font-family: 'Holtwood One SC', serif;
+}
+
+#Search::placeholder {
+  font-size: 2vh;
 }
 
 /* Templete */
@@ -247,7 +283,7 @@ button {
   display: flex;
   float: left;
   margin-left: 2vh;
-  width: 90%;
+  width: 120vh;
   overflow: auto;
   font-size: 5vh;
   color: #FFF;
@@ -255,7 +291,9 @@ button {
   font-family: Impact;
   font-style: normal;
   font-weight: 400;
-  line-height: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden; 
   position: absolute;
   text-shadow: 0.1vh 0.1vh 0.1vh black;
 }
@@ -338,8 +376,8 @@ button {
 }
 
 .Image {
-  width: 20vh;
-  height: 17.6vh;
+  width: 15vh;
+  height: 15vh;
   border-radius: 3vh;
   top: 0;
   margin-top: 2vh;
@@ -432,7 +470,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2.6vh;
+  font-size: 2.8vh;
   margin: auto;
   margin-top: 2vh;
   width: 120vh;
@@ -444,9 +482,12 @@ button {
   font-weight: 400;
   line-height: normal;
   padding: 2vh;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden; 
   overflow: auto;
   overflow: auto;
-  border: 0.2vh solid transparent;
+  border: 0.1vh solid transparent;
   overflow: hidden;
 }
 
@@ -709,9 +750,9 @@ button {
   margin: auto;
   margin-top: 2vh;
   border-radius: 50%;
-  -webkit-animation: spin 20s linear infinite;
-  -moz-animation: spin 20s linear infinite;
-  animation: spin 20s linear infinite;
+  -webkit-animation: spin 40s linear infinite;
+  -moz-animation: spin 40s linear infinite;
+  animation: spin 40s linear infinite;
 }
 
 @-moz-keyframes spin {
@@ -812,6 +853,21 @@ button {
   border-radius: 10px;
   background-color: rgb(25, 6, 112);
 }
+/* Background Carrossel */
+#splide{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 80vh;
+}
+
+.splide__slide > img{
+  width: 50vh;
+  height: 80vh;
+  border-radius: 2vh;
+  margin-left: 2vh;
+  cursor: pointer;
+}
 
 /* Sobre */
 #Sobre {
@@ -903,7 +959,6 @@ button {
   height: 100%;
   text-align: center;
   cursor: pointer;
-  top: 0;
   position: fixed;
 }
 
@@ -962,9 +1017,6 @@ button {
   cursor: pointer;
 }
 
-#Search::placeholder {
-  font-size: 2vh;
-}
 
 #AdicionarButton,
 #Background_Bk>button,
@@ -1073,17 +1125,6 @@ button {
   padding: 2vh;
 }
 
-#Search {
-  border: 0.3vh solid #ebeb10;
-  background: rgb(24, 22, 37);
-  display: block;
-  margin: auto;
-  margin-top: 2vh;
-  height: 5vh;
-  width: 90%;
-  text-align: center;
-  color: whitesmoke;
-}
 
 #Buscando,
 #AbrirBK,
@@ -1167,3 +1208,4 @@ button {
   initial-value: 0deg;
   inherits: false;
 }
+

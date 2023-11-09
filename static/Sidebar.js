@@ -15,12 +15,15 @@ EscolherBK.addEventListener("click", function () {
     CorpoBk.style.display = "block"
     Sidebar.style.display = "none"
 })
-var Data = new Date()
-var hh = Data.getHours()
-var mm = Data.getMinutes()
-var ss = Data.getSeconds()
+var hh = 0
+var mm = 0
+var ss = 0
 
-
+if(localStorage.Tempo){
+var hh = JSON.parse(localStorage.getItem("Tempo"))[0]
+var mm = JSON.parse(localStorage.getItem("Tempo"))[1]
+var ss = JSON.parse(localStorage.getItem("Tempo"))[2]
+}
 setInterval(function Timer() {
     ss++
     if (ss >= 60) {
@@ -31,7 +34,8 @@ setInterval(function Timer() {
         hh++
         mm = 0
     }
-    var Valor = (hh < 10 ? "0" + hh : hh) + ":" + (mm < 10 ? "0" + mm : mm) + ":" + (ss < 10 ? "0" + ss : ss)
-    document.getElementById("Tempo").innerText = Valor
+    var ValorHtml = (hh < 10 ? "0" + hh : hh) + ":" + (mm < 10 ? "0" + mm : mm) + ":" + (ss < 10 ? "0" + ss : ss)
+    var Valor = [hh,mm,ss]
+    document.getElementById("Tempo").innerText = ValorHtml
+    localStorage.setItem("Tempo", JSON.stringify(Valor))
 }, 1000)
-

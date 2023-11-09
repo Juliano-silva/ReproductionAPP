@@ -8,6 +8,9 @@
     <link rel="shortcut icon" href="https://i.pinimg.com/originals/a5/48/62/a548621495414d011ca281f47e5551c0.jpg" type="image/x-icon">
     <link rel="stylesheet" href="../static/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="
+    https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
+    " rel="stylesheet">
 </head>
 <body id="BodyBody">
     <input type="checkbox" id="BtnSidebarCheck">
@@ -19,7 +22,7 @@
             <h1>Reproduction</h1>
         </div>
         <div id="TempoDiv">
-            <h1>Horário Atual: <span id="Tempo"></span></h1>
+            <h1>Tempo Atual: <span id="Tempo"></span></h1>
         </div>
         <a href="/Index" target="Rota_Principal">Player</a>
         <a href="/Adicionar" target="Rota_Principal">Adicionar</a>
@@ -34,11 +37,18 @@
     </div>
     <div id="Corpo_Backgrounds">
         <h1>Escolha aqui seu Background</h1>
-        <div id="BackgroundsC"></div>
-        <br>
+        <div id="splide" class="splide">
+            <div class="splide__track">
+                <ul id="BackgroundsC" class="splide__list"></ul>
+              </ul>
+            </div>
+          </div>
     </div>
     <iframe src="/Index" name="Rota_Principal" frameborder="0"></iframe>
 </body>
+<script src="
+https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
+"></script>
 <script src="../static/Sidebar.js"></script>
 <script src="../static/Background.js"></script>
 </html>

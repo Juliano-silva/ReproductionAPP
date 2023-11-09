@@ -36,13 +36,39 @@ function previewFile() {
         preview.src = "";
     }
 }
+
+document.addEventListener( 'DOMContentLoaded', function () {
+    new Splide('#splide', {
+      type: 'loop',
+      perPage: 3,
+      focus: 'center',
+      autoplay: false,
+      interval: 8000,
+      flickMaxPages: 3,
+      updateOnMove: true,
+      pagination: false,
+      padding: '10%',
+      throttle: 300,
+      breakpoints: {
+        1440: {
+          perPage: 1,
+          padding: '30%'
+        }
+      }
+    }).mount();
+  });
+  
+
 // Os Dois
+if(localStorage.Nota){
 function Localizar() {
     var LocalBK = localStorage.getItem("Nota")
     var BKCORPO = document.getElementById("BackgroundsC")
     var JSONBK = JSON.parse(LocalBK).length
     for (var i = 0; i < JSONBK; i++) {
         var imgBKM = document.createElement("img")
+        var List = document.createElement("li")
+        List.classList = "splide__slide"
         imgBKM.src = JSON.parse(LocalBK)[i]
         Terminou = imgBKM.src.endsWith(".jpg") || imgBKM.src.endsWith(".jpeg") || imgBKM.src.endsWith(".png") || imgBKM.src.endsWith(".gif") || imgBKM.src.endsWith(".bmp") || imgBKM.src.endsWith("==") || imgBKM.src.endsWith("=") || imgBKM.src.endsWith(".webp")
         if (Terminou == true) {
@@ -52,7 +78,8 @@ function Localizar() {
             imgBKM.id = "IMGSidebarError"
             imgBKM.style.display = "none"
         }
-        BKCORPO.append(imgBKM)
+        List.append(imgBKM)
+        BKCORPO.append(List)
         imgBKM.addEventListener("click", function () {
             var IDBK = this.id.replace("IMGSidebar", "")
             var NewVersion = JSON.parse(LocalBK)[IDBK]
@@ -65,3 +92,4 @@ function Localizar() {
 }
 
 document.onload = Localizar()
+}
