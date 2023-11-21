@@ -133,16 +133,10 @@ fetch("/DadosMusic").then(function (response) {
                     LabelPlayePause.style.display = "none"
                 }
                 // Imagens
-                // var BuscarImg = localStorage.getItem("Musicas")
-                // const ImageURL = JSON.parse(BuscarImg)[i]
-
-                // ?.replace("https://music.youtube.com/watch?v=", "")?.replace("https://www.youtube.com/watch?v=", "")?.slice(0, 11)
                 Image.id = `Image${Id}`
                 Image.className = "Image"
                 var EscolhaImg = Math.floor(Math.random() * MinhasMusicas.Galeria.length)
                 TPImage.src = ImagesPrincipal.src = Image.src = "/Fotos/" + MinhasMusicas.Galeria[EscolhaImg]
-                // `http://img.youtube.com/vi/${ImageURL}/mqdefault.jpg`
-                // Play e Pause Function
                 var Contador = localStorage.getItem("Tocandas")
                 if (Contador < 0 || Contador === null) {
                     var count = 0
@@ -326,3 +320,7 @@ fetch("/DadosMusic").then(function (response) {
 // Background
 var EscolhaBK = localStorage.getItem("BackgroundEscolhido")
 document.querySelector("body").style.backgroundImage = `url(${EscolhaBK})`
+
+function AbirPlaylist(){
+    document.getElementById("PlaylistInputBody").style.display = "block"
+}

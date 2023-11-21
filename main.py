@@ -7,8 +7,7 @@ from winotify import Notification
 app = Flask(__name__)
 webview.create_window('Reproduction', app,resizable=True,width=1000,height=600 ,http_port=6969,js_api=True,minimized=True,on_top=True)
 #Routers
-Diretorio = "C:\\Reproduction_Folder\\music"
-
+Diretorio = r"C:\\Reproduction_Folder\\music"
 Galeria = "C:\\Reproduction_Folder\\Imagens"
 
 existe = os.path.exists("C:\\Reproduction_Folder")
@@ -16,7 +15,7 @@ if(existe == False):
     os.makedirs("C:\\Reproduction_Folder")
     Arquivo = open('C:/Reproduction_Folder/db.json','x',encoding="utf-8")
 else:
-    print("Arquivo Criado")
+    print("Arquivo Já Criado")
 
 @app.route("/",methods=["GET","POST"])
 def home():
@@ -24,16 +23,13 @@ def home():
 
 @app.route("/Index",methods=["GET","POST"])
 def index():
-    Mural = []
     files = list(filter(os.path.isfile, glob.glob(Diretorio + "\\*"))) 
     files.sort(key=os.path.getctime) 
-    for nome_do_arquivo in os.listdir(Galeria):
-        eda = os.path.join(Galeria,nome_do_arquivo)
-        if(os.path.isfile(eda)):
-            Mural.append(nome_do_arquivo)
-        with open('C:/Reproduction_Folder/db.json','w',encoding="utf-8") as arquivo:
-            Escrito = str('{"Name_Music":' f"{files},'Galeria':{Mural}""}")
-            arquivo.write(Escrito.replace("\\","").replace("C:Reproduction_Foldermusic","").replace("'",'"'))
+    Mural = list(filter(os.path.isfile, glob.glob(Galeria + "\\*"))) 
+    Mural.sort(key=os.path.getctime) 
+    with open('C:/Reproduction_Folder/db.json','w',encoding="utf-8") as arquivo:
+        Escrito = str('{"Name_Music":' f"{files},'Galeria':{Mural}""}")
+        arquivo.write(Escrito.replace("\\","").replace("C:Reproduction_Foldermusic","").replace("C:Reproduction_FolderImagens","").replace("'",'"'))
     return render_template("index.html")
 
 @app.route("/Adicionar",methods=["GET","POST"])
@@ -67,7 +63,7 @@ def AddMusic():
     Monstrar.show()
     new_file = base + '.mp3'
     os.rename(out_file, new_file)
-    print(yt.title + "has been successfully downloaded.")
+    print(yt.title + " has been successfully downloaded.")
     return render_template("Adicionar.html")
 
 
@@ -96,12 +92,12 @@ def ImageFolder(filename):
     return send_from_directory(Galeria + "\\",filename)
 
 
-@app.route("/DadosMusic",methods=["GET"])
+@app.route("/DadosMusic",methods=["GET","POST"])
 def Music():
     with open("C:/Reproduction_Folder/db.json",encoding="utf-8") as meu_json:
         dados = json.load(meu_json)
-    return jsonify(dados)
+        return jsonify(dados)
 
 if __name__ == "__main__":
-    webview.start(debug=True,private_mode=False,http_server=True)
+    webview.start(debug=False,private_mode=False,http_server=True)
     # app.run(debug=True)
