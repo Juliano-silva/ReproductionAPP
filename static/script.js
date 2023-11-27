@@ -42,24 +42,56 @@ fetch("/DadosMusic").then(function (response) {
             var MusicTirar = artistas
             var ArtistRenovado = MusicTirar?.trim()
             var Renovado = ArtistRenovado.slice(0, ArtistRenovado.indexOf("-")).replace(/\s/, "-").replace(/ /g, "")
+
+            if(artistas.indexOf("-") !== -1){
+                var ArtsMusic = artistas.slice(0,artistas.indexOf("-"))
+            }
+
+            if(artistas.indexOf(".") !== -1){
+                var ArtsMusic = artistas.slice(0,artistas.indexOf("."))
+            }
+
+            if(artistas.indexOf("|") !== -1){
+                var ArtsMusic = artistas.slice(0,artistas.indexOf("|"))
+            }
+
+            if(artistas.indexOf("_") !== -1){
+                var ArtsMusic = artistas.slice(0,artistas.indexOf("_"))
+            }
+
+            if(artistas.indexOf("·") !== -1){
+                var ArtsMusic = artistas.slice(0,artistas.indexOf("·"))
+            }
+
+            var NewAge = ArtsMusic?.replace("-","")?.replace(".","")?.replace("_","")?.replace("·","")?.replace("|","").toLowerCase().trim().replace(/\s/g, "-")
+
+        
             // Música
-            var Musics = MusicReplace.toLowerCase().replace("mp3", "")
-            var MusicsTirar = Musics
-            var MusicRodar = MusicsTirar.slice().replace(".", "").replace(/[0-9]/g, "").replace("_", "")
-            var MusicDefinit = MusicRodar?.trim()
-            var MusicRenovada = MusicDefinit.slice(ArtistRenovado.indexOf("-"), ArtistRenovado.length).replace(/\s/, "-").replace(/ /g, "-").replace("--", "")
-            if (Renovado.slice(-1) == "-") {
-                Renovado = Renovado.slice(0, -1)
+            var MusicRenovada = MusicReplace
+
+            if(MusicRenovada.indexOf("-") !== -1){
+                var RenoMusic = MusicRenovada.slice(MusicRenovada.indexOf("-"))
             }
-            if (MusicRenovada.indexOf("(")) {
-                var MusicAchar = MusicRenovada.indexOf("(")
-                MusicRenovada = MusicRenovada.slice(MusicRenovada, MusicAchar)
+
+            if(MusicRenovada.indexOf(".") !== -1){
+                var RenoMusic = MusicRenovada.slice(MusicRenovada.indexOf("."))
             }
-            if (MusicRenovada.slice(-1) == "-") {
-                MusicRenovada = MusicRenovada.slice(0, -1)
+
+            if(MusicRenovada.indexOf("|") !== -1){
+                var RenoMusic = MusicRenovada.slice(MusicRenovada.indexOf("|"))
             }
-            // Link da Api do Vagalume
-            var LINKVAGALUME = "https://api.vagalume.com.br/search.php" + "?art=" + Renovado + "&mus=" + MusicRenovada + `&apikey=${Key}`
+
+            if(MusicRenovada.indexOf("_") !== -1){
+                var RenoMusic = MusicRenovada.slice(MusicRenovada.indexOf("_"))
+            }
+
+            if(MusicRenovada.indexOf("·") !== -1){
+                var RenoMusic = MusicRenovada.slice(MusicRenovada.indexOf("·"))
+            }
+
+            var Revolution = RenoMusic?.replace("-","")?.replace(".","")?.replace("_","")?.replace("·","")?.replace("|","").toLowerCase().trim().replace(/\s/g, "-")
+
+            var LINKVAGALUME = "https://api.vagalume.com.br/search.php" + "?art=" + NewAge + "&mus=" + Revolution + `&apikey=${Key}`
             const respose = await fetch(LINKVAGALUME)
             const jsonData = await respose.json()
             var Dados = document.createElement("h2")

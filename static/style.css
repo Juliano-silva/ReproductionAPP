@@ -820,21 +820,17 @@ button {
 #LetraMusics {
   display: -webkit-box;
   width: 80%;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 7;
   display: block;
   margin: auto;
   overflow: hidden;
   color: #FFF;
   text-align: justify;
   text-shadow: 0.2vh 0.2vh 0.2vh black;
-  padding: 1vh;
-  text-overflow: ellipsis;
-  font-family: Impact;
-  font-size: 4vh;
+  padding: 2vh;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 6vh;
   font-style: normal;
   font-weight: 400;
-  line-height: normal;
   margin-top: 2vh;
   display: block;
 }

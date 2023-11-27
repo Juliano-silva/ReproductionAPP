@@ -99,5 +99,5 @@ def Music():
         return jsonify(dados)
 
 if __name__ == "__main__":
-    webview.start(debug=False,private_mode=False,http_server=True)
-    # app.run(debug=True)
+    # webview.start(debug=False,private_mode=False,http_server=True)
+    app.run(debug=True)
