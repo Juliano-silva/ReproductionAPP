@@ -311,6 +311,7 @@ fetch("/DadosMusic").then(function (response) {
                 }
                 // AddPlaylist
                 if (localStorage.Playlist) {
+                    document.getElementById("PlaylistHome").innerHTML = ""
                     var LocalPlaylist = localStorage.getItem("Playlist")
                     var SelectPlay = document.createElement("ol")
                     var PlaylistH1 = document.createElement("h1")
