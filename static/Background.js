@@ -98,5 +98,5 @@ if (localStorage.Nota) {
     document.querySelector("body").style.backgroundImage = `url(${EscolhaBK})`
   }
 
-  document.onload = Localizar()
+  document.onchange = Localizar()
 }
