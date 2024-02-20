@@ -708,6 +708,7 @@ button {
   cursor: pointer;
   z-index: 1;
   top: 0;
+  filter: drop-shadow(0.2vh 0.2vh 0.2vh white);
 }
 
 #TrásP>img,
@@ -738,13 +739,22 @@ button {
 
 }
 
-#play2,
-#Pausar2 {
+#BoxPlayer{
   cursor: pointer;
-  width: 25vh;
-  height: 25vh;
+  width: 30vh;
+  height: 30vh;
   display: flex;
   margin: auto;
+  border: 0.2vh solid rgb(19, 4, 85);
+  background-color: rgb(25, 5, 110);
+  border-radius: 50%;
+  padding: 8vh;
+}
+
+#play2,
+#Pausar2 {
+  filter: drop-shadow(0.2vh 0.2vh 0.2vh white);
+  display: flex;
 }
 
 #play2 {
@@ -759,8 +769,8 @@ button {
 }
 
 #ImagesPrincipal {
-  width: 80vh;
-  height: 80vh;
+  width: 70vh;
+  height: 70vh;
   display: block;
   margin: auto;
   margin-top: 2vh;
@@ -855,6 +865,10 @@ button {
   position: relative;
 }
 
+#Box_progress{
+  margin-top: 4vh;
+}
+
 .progressed::after {
   content: '';
   position: absolute;
@@ -933,14 +947,8 @@ i#next {
   padding: 0;
   margin: 0;
   overflow: hidden;
-  display: flex;
 }
 
-#Sobre>img {
-  float: left;
-  width: 50%;
-  height: 100%;
-}
 
 #Caixa_de_Sobre>h2,
 #Caixa_de_Sobre>h3 {
@@ -993,9 +1001,11 @@ i#next {
 }
 
 #Caixa_de_Sobre {
-  float: right;
   overflow: hidden;
   width: 45%;
+  border: 0.1vh solid transparent;
+  display: block;
+  margin: auto;
   margin-top: 5%;
 }
 
@@ -1028,13 +1038,14 @@ i#next {
 #PlaylistName {
   all: unset;
   border: 0.2vh solid rgb(12, 3, 48);
-  border-bottom: 0.6vh solid rgb(5, 127, 136);
-  background-color: rgb(15, 4, 53);
+  border-bottom: 0.6vh solid yellow;
+  background-color: rgb(14, 5, 48);
   font-family: "Holtwood One SC", serif;
   text-align: left;
   padding: 2vh;
   font-size: 5vh;
   color: white;
+  border-radius: 2vh;
   cursor: text;
   width: 80%;
   margin-top: 20%;
@@ -1049,6 +1060,7 @@ i#next {
   border-bottom: transparent;
   cursor: pointer;
   color: yellow;
+  border-radius: 0vh;
 }
 
 :is(#BackgroundsMusicP, #AdicionarInput, #PlaylistName, #BackgroundsText)::placeholder {
@@ -1077,7 +1089,6 @@ i#next {
   cursor: pointer;
 }
 
-
 #AdicionarButton,
 #PlaylistButton,
 #Background_Bk>button,
@@ -1099,7 +1110,7 @@ i#next {
 #AdicionarButton:hover,
 #Background_Bk>button:hover,
 #PlaylistSalvar:hover #file:hover {
-  filter: invert(1);
+  background-color: rgb(43, 15, 143);
 }
 
 #PlaylistButton {

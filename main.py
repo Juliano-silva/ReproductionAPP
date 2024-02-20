@@ -14,6 +14,7 @@ existe = os.path.exists("C:\\Reproduction_Folder")
 if(existe == False):
     os.makedirs("C:\\Reproduction_Folder")
     Arquivo = open('C:/Reproduction_Folder/db.json','x',encoding="utf-8")
+    Arquivos = open('C:/Reproduction_Folder/Img.json','x',encoding="utf-8")
 else:
     print("Arquivo Já Criado")
 
@@ -51,10 +52,14 @@ def Sob():
 @app.route("/AddMusic",methods=["POST"])
 def AddMusic():
     data = request.get_json()
+    # Video Baixar URL
     yt = YouTube(str(data['value']))
     video = yt.streams.filter(only_audio=True).first()
     out_file = video.download(output_path="C:/Reproduction_Folder/music")
     base, ext = os.path.splitext(out_file)
+    # Thumb Baixar URL
+    Url_file = yt.thumbnail_url
+    # Notificação
     Monstrar = Notification(app_id="Reproduction",
                        title=yt.title,
                        msg="Música Baixada Com Sucesso",
@@ -63,6 +68,15 @@ def AddMusic():
     Monstrar.show()
     new_file = base + '.mp3'
     os.rename(out_file, new_file)
+    array = []
+    with open('C:/Reproduction_Folder/Img.json',encoding="utf-8") as arquivo:
+        Jsons = json.load(arquivo)
+    with open('C:/Reproduction_Folder/Img.json',"w",encoding="utf-8") as out_arq:
+        StingNums = int(str(Jsons).find(']'))
+        Conteudo = str(Jsons)[:StingNums].replace("{'Imgs': [","")
+        array.append(Conteudo + "," + "'" + f'{Url_file}')
+        Escrito = {"Imgs": array}
+        out_arq.write(str(Escrito).replace("'",'"'))
     print(yt.title + " has been successfully downloaded.")
     return render_template("Adicionar.html")
 
@@ -98,6 +112,12 @@ def Music():
         dados = json.load(meu_json)
         return jsonify(dados)
 
+@app.route("/ThumbJson",methods=["GET","POST"])
+def Thumb():
+    with open("C:/Reproduction_Folder/Img.json",encoding="utf-8") as meu_json:
+        dados = json.load(meu_json)
+        return jsonify(dados)
+
 if __name__ == "__main__":
-    webview.start(debug=False,private_mode=False,http_server=True)
-    # app.run(debug=True)
+    # webview.start(debug=False,private_mode=False,http_server=True)
+    app.run(debug=False,port=5052)
