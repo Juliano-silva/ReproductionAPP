@@ -77,6 +77,7 @@ fetch("/DadosMusic").then(function (response) {
                 return Letra.innerText
             }
             VagalumeLetra()
+
             const Vagalume = async () => {
                 var LINKVAGALUME = "https://api.vagalume.com.br/search.php" + "?art=" + ArtistDados + "&mus=" + MusicDados + `&apikey=${Key}`
                 const respose = await fetch(LINKVAGALUME)
@@ -93,13 +94,25 @@ fetch("/DadosMusic").then(function (response) {
             Dados.id = `Dados${Id}`
             Letra.id = `LetraMusic${Id}`
             Letra.className = `LetraMusic`
+
             Promise.all([Vagalume(), VagalumeLetra()]).then((values) => {
-                for(var i = 0; i < MinhasMusicas.Name_Music.length - 1; i++){
-                    console.log( values[0]);
-                    document.getElementById(`Dados${i}`).innerText = values[0]
-                    document.getElementById(`LetraMusic${i}`).innerText = values[1]
-                }
+                DadosList.push({
+                    "Autor": values[0],
+                    "Letra": values[1]
+                })
+
+                localStorage.setItem("Vagalume", JSON.stringify(DadosList))
             });
+
+            if (localStorage.Vagalume) {
+                var Apis = JSON.parse(localStorage.getItem("Vagalume"))
+                Dados.innerText = Apis[i].Autor
+                Letra.innerText = Apis[i].Letra
+            } else {
+                Dados.innerText = "Desconhecido"
+                Letra.innerText = "Letra Desconhecida"
+            }
+
 
             // Caixa de Texto
             CaixadeTexto.id = `CaixaTexto`
@@ -130,43 +143,44 @@ fetch("/DadosMusic").then(function (response) {
             Image.id = `Image${Id}`
             Image.className = "Image"
             fetch("/ThumbJson").then(function (response) {
-                response.json().then((data) => {
-                    for (var i = 0; i < data.Imgs.length; i++) {
+                response.json().then((datas) => {
+                    for (var i = 0; i < datas.Imgs.length; i++) {
                         var Image = window.document.querySelector(`img#Image${i}`)
                         var ImagesPrincipal = document.querySelector("img#ImagesPrincipal")
                         var TPImage = document.querySelector("img#TPImage")
                         $("label.LabelPlayePause").on("click", function () {
                             var Id = parseInt(($(this).attr("id")).replace("Labeis", ""))
-                            ImagesPrincipal.src = TPImage.src = data.Imgs[Id]
+                            ImagesPrincipal.src = TPImage.src = datas.Imgs[Id]
                             // Frente
                             $(`button#Frente,button#FrenteP`).on("click", function () {
                                 if (Id < MinhasMusicas.Name_Music.length) {
                                     Id++
-                                    ImagesPrincipal.src = TPImage.src = data.Imgs[Id]
-                                }else{
-                                    ImagesPrincipal.src = TPImage.src = data.Imgs[Id = 0]
+                                    ImagesPrincipal.src = TPImage.src = datas.Imgs[Id]
+                                } else {
+                                    ImagesPrincipal.src = TPImage.src = datas.Imgs[Id = 0]
                                 }
                             })
 
-                            ORIGINAL.addEventListener("ended",function(){
+                            ORIGINAL.addEventListener("ended", function () {
                                 Id++
-                                ImagesPrincipal.src = TPImage.src = data.Imgs[Id]
+                                ImagesPrincipal.src = TPImage.src = datas.Imgs[Id]
                             })
 
                             // Trás
                             $(`button#TrásP,buttonTrás`).on("click", function () {
                                 if (Id >= 0) {
                                     Id--
-                                    ImagesPrincipal.src = TPImage.src = data.Imgs[Id]
-                                }else{
-                                    ImagesPrincipal.src = TPImage.src = data.Imgs[Id = 0]
+                                    ImagesPrincipal.src = TPImage.src = datas.Imgs[Id]
+                                } else {
+                                    ImagesPrincipal.src = TPImage.src = datas.Imgs[Id = 0]
                                 }
                             })
                         })
-                        Image.src = data.Imgs[i]
+                        Image.src = datas.Imgs[i]
                     }
                 })
             })
+
             // Search
             document.getElementById("Search").addEventListener("keyup", function () {
                 var Filtar = document.getElementById("Search").value

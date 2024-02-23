@@ -3,6 +3,7 @@ from flask import Flask,render_template,session,redirect,url_for,jsonify,request
 from pytube import YouTube
 import os , glob , json , webview , ctypes , random , urllib.request
 from winotify import Notification
+import requests
 # App stuff
 app = Flask(__name__)
 webview.create_window('Reproduction', app,resizable=True,width=1000,height=600 ,http_port=6969,js_api=True,minimized=True,on_top=True)
@@ -51,6 +52,7 @@ def Sob():
 
 @app.route("/AddMusic",methods=["POST"])
 def AddMusic():
+    JsonImg = 'C:/Reproduction_Folder/Img.json'
     data = request.get_json()
     # Video Baixar URL
     yt = YouTube(str(data['value']))
@@ -68,15 +70,13 @@ def AddMusic():
     Monstrar.show()
     new_file = base + '.mp3'
     os.rename(out_file, new_file)
-    array = []
-    with open('C:/Reproduction_Folder/Img.json',encoding="utf-8") as arquivo:
-        Jsons = json.load(arquivo)
-    with open('C:/Reproduction_Folder/Img.json',"w",encoding="utf-8") as out_arq:
-        StingNums = int(str(Jsons).find(']'))
-        Conteudo = str(Jsons)[:StingNums].replace("{'Imgs': [","")
-        array.append(Conteudo + "," + "'" + f'{Url_file}')
-        Escrito = {"Imgs": array}
-        out_arq.write(str(Escrito).replace("'",'"'))
+    file = open(JsonImg)
+    x = file.read()
+    New_Dots = f',"{Url_file}"'
+    finaldata = str(json.loads(x)).replace("]}",f'{New_Dots}]').replace("'",'"').replace('[,"','["')
+    with open(JsonImg,"w") as img:
+        img.write(finaldata + "}")
+
     print(yt.title + " has been successfully downloaded.")
     return render_template("Adicionar.html")
 
@@ -105,6 +105,11 @@ def MusicFolder(filename):
 def ImageFolder(filename):
     return send_from_directory(Galeria + "\\",filename)
 
+@app.route("/ThumbJson",methods=["GET","POST"])
+def Thumb():
+    with open ("C:/Reproduction_Folder/Img.json",encoding="utf-8") as my_json:
+        dados = json.load(my_json)
+        return jsonify(dados)
 
 @app.route("/DadosMusic",methods=["GET","POST"])
 def Music():
@@ -112,11 +117,6 @@ def Music():
         dados = json.load(meu_json)
         return jsonify(dados)
 
-@app.route("/ThumbJson",methods=["GET","POST"])
-def Thumb():
-    with open("C:/Reproduction_Folder/Img.json",encoding="utf-8") as meu_json:
-        dados = json.load(meu_json)
-        return jsonify(dados)
 
 if __name__ == "__main__":
     # webview.start(debug=False,private_mode=False,http_server=True)
