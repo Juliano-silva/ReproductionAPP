@@ -182,7 +182,7 @@ button {
 
 /* Search */
 #Search {
-  border: 0.3vh solid #ebeb10;
+  border: 0.3vh solid rgb(2, 85, 2);
   background: rgb(24, 22, 37);
   display: block;
   margin: auto;
@@ -195,6 +195,17 @@ button {
   resize: none;
   color: whitesmoke;
   overflow: hidden;
+}
+
+#Search::placeholder{
+  display: block;
+  margin: auto;
+  height: 5vh;
+  color: whitesmoke;
+  align-content: center;
+  padding: 1vh;
+  align-items: center;
+  justify-content: center;
 }
 
 #Search_DIV {
@@ -286,7 +297,7 @@ button {
   display: flex;
   float: left;
   margin-left: 2vh;
-  width: 120vh;
+  width: 90%;
   overflow: auto;
   font-size: 5vh;
   color: #FFF;
@@ -299,6 +310,7 @@ button {
   overflow: hidden;
   position: absolute;
   text-shadow: 0.1vh 0.1vh 0.1vh black;
+  margin-top: 1vh;
 }
 
 #TP_Name::-webkit-scrollbar {
@@ -485,20 +497,30 @@ button {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  width: 100vh;
+  width: 80%;
+  border: 0.1vh solid transparent;
   height: 2vh;
   color: #FFF;
   text-align: center;
-  border: 0.1vh solid transparent;
   font-family: 'Holtwood One SC', serif;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   padding: 2vh;
-  position: relative;
+  position: fixed;
 
 }
 
+#CaixaTexto{
+  position: fixed;
+  margin-left: 30vh;
+  width: 75%;
+  background-color: white;
+}
+
+#CaixaTexto>h2{
+  margin-top: 8vh;
+}
 
 #CaixaTexto>input,
 .Box_Create>input,
@@ -564,6 +586,10 @@ button {
   float: right;
   font-size: 4vh;
   margin-top: -0.8vh;
+}
+
+#CaixaTexto>input:nth-child(4){
+  width: 15%;
 }
 
 /* Sidebar */
@@ -635,6 +661,7 @@ button {
   font-size: 4vh;
 }
 
+
 #HeaderSidebar {
   padding-top: 2vh;
   padding-bottom: 2vh;
@@ -677,7 +704,7 @@ button {
 }
 
 /* MusicaPrincipal */
-#MusicaPrincipal {
+#MusicaPrincipal,#MyEdit {
   background: radial-gradient(151.92% 127.02% at 15.32% 21.04%, rgba(165, 239, 255, 0.20) 0%, rgba(110, 191, 244, 0.04) 77.08%, rgba(70, 144, 212, 0.00) 100%);
   backdrop-filter: blur(2.6vh);
   background-position: center;
@@ -700,6 +727,7 @@ button {
   justify-content: center;
   width: 75%;
   margin: auto;
+  margin-top:2.5vh;
   padding: 2vh;
 }
 
@@ -708,7 +736,7 @@ button {
   cursor: pointer;
   z-index: 1;
   top: 0;
-  filter: drop-shadow(0.2vh 0.2vh 0.2vh white);
+  filter: drop-shadow(0.1vh 0.1vh 0.1vh white);
 }
 
 #TrásP>img,
@@ -717,7 +745,15 @@ button {
   height: 35vh;
 }
 
-#MusicaPrincipal::-webkit-scrollbar {
+#TrásP {
+  margin-right: 20vh;
+}
+
+#FrenteP{
+  margin-left: 20vh;
+}
+
+#MusicaPrincipal::-webkit-scrollbar,#MyEdit::-webkit-scrollbar {
   width: 0px;
 }
 
@@ -733,28 +769,24 @@ button {
   color: black;
 }
 
+#FecharPrincipal:hover{
+  color: white;
+}
+
+
 .IMGSidebar {
   margin-left: 2vh;
   width: 60vh;
 
 }
 
-#BoxPlayer{
+#play2,
+#Pausar2 {
+  filter: drop-shadow(0.1vh 0.1vh 0.1vh white);
+  display: flex;
   cursor: pointer;
   width: 30vh;
   height: 30vh;
-  display: flex;
-  margin: auto;
-  border: 0.2vh solid rgb(19, 4, 85);
-  background-color: rgb(25, 5, 110);
-  border-radius: 50%;
-  padding: 8vh;
-}
-
-#play2,
-#Pausar2 {
-  filter: drop-shadow(0.2vh 0.2vh 0.2vh white);
-  display: flex;
 }
 
 #play2 {
@@ -767,18 +799,15 @@ button {
   margin-right: 2vh;
   margin-top: 2vh;
 }
-
 #ImagesPrincipal {
-  width: 70vh;
-  height: 70vh;
-  display: block;
-  margin: auto;
-  margin-top: 2vh;
-  border-radius: 50%;
-  -webkit-animation: spin 40s linear infinite;
-  -moz-animation: spin 40s linear infinite;
-  animation: spin 40s linear infinite;
+  width: 100%;
+  height: 85vh;
+  display: block;  
+  box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.2);
+  -ms-interpolation-mode: bicubic;
 }
+
+
 
 @-moz-keyframes spin {
   100% {
@@ -802,7 +831,7 @@ button {
 #TextosPrincipal,
 #ArtistaPrincipal {
   text-align: center;
-  font-size: 6vh;
+  font-size: 8vh;
   padding: 1vh;
   width: 90%;
   display: block;
@@ -810,11 +839,19 @@ button {
   margin-top: 2vh;
   color: #FFF;
   text-align: center;
-  font-family: Impact;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   text-shadow: 0.1vh 0.1vh 0.1vh black;
+}
+
+#TextosPrincipal{
+  color: green;
+}
+
+#TextosPrincipal::first-letter{
+  text-transform: uppercase;
 }
 
 #ArtistaPrincipal {
@@ -823,13 +860,21 @@ button {
   font-size: 3vh;
 }
 
+#ArtistLetras{
+  position: absolute;
+  width: 100%;
+  margin-top: -20vh;
+}
+
+
+
 .LetraMusic {
   font-size: 0px;
 }
 
 #LetraMusics {
   display: -webkit-box;
-  width: 80%;
+  width: 95%;
   display: block;
   margin: auto;
   overflow: hidden;
@@ -851,9 +896,9 @@ button {
   width: 80%;
   display: block;
   margin: auto;
-  border-radius: 1vh;
+  border-radius: 2vh;
   overflow: hidden;
-  background-color: white;
+  background: radial-gradient(151.92% 127.02% at 15.32% 21.04%, rgba(165, 239, 255, 0.20) 0%, rgba(110, 191, 244, 0.04) 77.08%, rgba(70, 144, 212, 0.00) 100%);
 }
 
 .progressed {
@@ -872,12 +917,11 @@ button {
 .progressed::after {
   content: '';
   position: absolute;
-  right: -1vh;
+  right: -1.4vh;
   top: -0vh;
-  width: 2vh;
-  height: 5vh;
-  border-radius: 10px;
-  background-color: rgb(25, 6, 112);
+  padding: 2.5vh;
+  border-radius: 50%;
+  background-color: rgb(4, 80, 4);
 }
 
 /* Background Carrossel */
@@ -1035,7 +1079,7 @@ i#next {
 #BackgroundsText,
 #FileLabel,
 #BackgroundsMusicP,
-#PlaylistName {
+#PlaylistName{
   all: unset;
   border: 0.2vh solid rgb(12, 3, 48);
   border-bottom: 0.6vh solid yellow;
@@ -1049,6 +1093,41 @@ i#next {
   cursor: text;
   width: 80%;
   margin-top: 20%;
+}
+
+#MyEdit > input,textarea{
+  all: unset;
+  border: 0.2vh solid rgb(12, 3, 48);
+  border-bottom: 0.6vh solid yellow;
+  background-color: rgb(14, 5, 48);
+  font-family: "Holtwood One SC", serif;
+  text-align: left;
+  padding: 2vh;
+  font-size: 5vh;
+  color: white;
+  border-radius: 2vh;
+  cursor: text;
+  width: 80%;
+  margin: auto;
+  margin-top: 3vh;
+}
+
+:is(#MyEdit > input,textarea)::placeholder{
+  color: white;
+}
+
+#AdicionarInput,
+#BackgroundsText,
+#MyEdit > input,textarea{
+  border: 0.4vh solid yellow;
+  background-color: transparent;
+  text-align: center;
+}
+
+#MyEdit > input,textarea{
+  display: block;
+  margin: auto;
+  margin-top: 2%;
 }
 
 #FileLabel {
@@ -1094,7 +1173,8 @@ i#next {
 #Background_Bk>button,
 #PlaylistSalvar,
 #file,
-#SalvarPrincipal {
+#SalvarPrincipal,
+#MyEdit > button{
   all: unset;
   width: 40vh;
   color: white;
@@ -1105,6 +1185,23 @@ i#next {
   border-radius: 50vh;
   margin-top: 2vh;
   background: rgb(13, 5, 43);
+  border: 0.2vh solid yellowgreen;
+  text-align: center;
+}
+
+#MyEdit > button{
+  display: block;
+  margin: auto;
+  margin-top: 3vh;
+}
+
+#Edit_Img{
+  border: 0.2vh solid white;
+  margin: auto;
+  display: block;
+  margin-top: 2vh;
+  width: 30vh;
+  height: 30vh;
 }
 
 #AdicionarButton:hover,
@@ -1134,7 +1231,7 @@ i#next {
   -webkit-appearance: none;
   appearance: none;
   width: 60vh;
-  height: 2vh;
+  height: 3vh;
   background: rgb(24, 22, 37);
   outline: none;
   opacity: 0.7;
@@ -1161,8 +1258,8 @@ i#next {
   appearance: none;
   width: 1.8vh;
   height: 1.8vh;
-  background: purple;
-  border: 0.4vh solid gold;
+  background: rgb(2, 43, 2);
+  border: 0.4vh solid green;
   cursor: pointer;
   border-radius: 50%;
 }
@@ -1190,7 +1287,7 @@ i#next {
   display: flex;
   float: right;
   margin-top: -7vh;
-  margin-right: -3vh;
+  margin-right: -4vh;
 }
 
 /* ConfigAbas */
@@ -1275,6 +1372,8 @@ i#next {
 #CorpoMP {
   display: none;
 }
+
+
 
 /* Animation Border */
 @keyframes rotate {

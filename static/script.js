@@ -1,5 +1,6 @@
 var array = []
 var DadosList = []
+var EditList = []
 var Musicas = document.getElementById("Musicas")
 var API_KEY = '36367067-43a20686ec62df15e47b5919d';
 var Diva = document.createElement("div")
@@ -21,6 +22,7 @@ fetch("/DadosMusic").then(function (response) {
             var s = document.createElement("button")
             var Image = document.createElement("img")
             var Remove = document.createElement("input")
+            var Edit = document.createElement("input")
             var IDNum = document.createElement("h3")
             var Dados = document.createElement("h2")
             var Letra = document.createElement("h3")
@@ -123,6 +125,11 @@ fetch("/DadosMusic").then(function (response) {
             Remove.value = "🗑️"
             Remove.type = "submit"
             Remove.id = MinhasMusicas.Name_Music[i]
+            // Edit
+            Edit.value = "✎"
+            Edit.type = "submit"
+            Edit.classList = i
+            Edit.id = MinhasMusicas.Name_Music[i]
             // Titulo
             Titulo.innerHTML = MusicReplace
             array.push(MusicReplace)
@@ -238,6 +245,7 @@ fetch("/DadosMusic").then(function (response) {
             })
             // Remove Function
             Remove.addEventListener("click", Remover)
+            Edit.addEventListener("click", Editar)
             function Remover() {
                 location.reload()
                 var value = this.id;
@@ -248,6 +256,55 @@ fetch("/DadosMusic").then(function (response) {
                     data: JSON.stringify({ 'value': value })
                 });
             }
+
+            // Editar Function
+            function Editar() {
+                var Id = this.className
+                var Titulo = document.getElementById(`Titulos${Id}`).innerHTML
+                var Artista = document.getElementById(`Dados${Id}`).innerHTML
+                var Letra = document.getElementById(`LetraMusic${Id}`).innerHTML
+                var Image = document.getElementById(`Image${Id}`).src
+                document.getElementById("MyEdit").style.display = "block"
+
+                MyEdit_NameMusic.value = Titulo
+                MyEdit_Artisc.value = Artista
+                MyEdit_Letra.value = Letra
+                MyEdit_Img.value = Edit_Img.src = Image
+
+                Btn_Edit.classList = Id
+                document.getElementById("Btn_Edit").addEventListener("click", EditPronto)
+            }
+
+            function EditPronto() {
+                var Id = this.className
+                if (localStorage.getItem("Editar")) {
+                    EditList = JSON.parse(localStorage.getItem("Editar"))
+                }
+
+                EditList.push({
+                    "Id": Id,
+                    "Titulo": MyEdit_NameMusic.value,
+                    "Artista": MyEdit_Artisc.value,
+                    "Letra": MyEdit_Letra.value,
+                    "Image": MyEdit_Img.value
+                })
+
+                localStorage.setItem("Editar", JSON.stringify(EditList))
+            }
+
+            if (localStorage.Editar) {
+                function EditLoad() {
+                    var Edit_Load = JSON.parse(localStorage.getItem("Editar"))
+                    for (var j = 0; j < Edit_Load.length; j++) {
+                        var Ids = Edit_Load[j].Id
+                        document.querySelectorAll(`#Titulos${Ids}`).forEach(el => el.innerHTML = Edit_Load[j].Titulo)
+                        document.querySelectorAll(`#Dados${Ids}`).forEach(el => el.innerHTML = Edit_Load[j].Artista)
+                        document.querySelectorAll(`#LetraMusic${Ids}`).forEach(el => el.innerHTML = Edit_Load[j].Letra)
+                        document.querySelectorAll(`#Image${Ids}`).forEach(el => el.src = Edit_Load[j].Image)
+                    }
+                }
+            }
+            document.addEventListener("load", EditLoad())
             // Velocidade
             var PlayBack = document.getElementById("PlayBack")
             document.getElementById("NormalPlayBack").addEventListener("click", function () {
@@ -421,7 +478,7 @@ fetch("/DadosMusic").then(function (response) {
                 }
             })
             // Append
-            CaixadeTexto.append(Titulo, Dados, Letra, Remove)
+            CaixadeTexto.append(Titulo, Dados, Letra, Remove, Edit)
             Box.append(IDNum, PlayePause, Image, CaixadeTexto, music)
             LabelPlayePause.append(Box)
             Musicas.append(LabelPlayePause)
@@ -430,7 +487,12 @@ fetch("/DadosMusic").then(function (response) {
 
 })
 
+function Abrir_Player() {
+    document.getElementById("MusicaPrincipal").style.display = "block";
+}
+
 // Background
 if (localStorage.BackgroundEscolhido) {
     document.querySelector("body").style.backgroundImage = `url(${localStorage.getItem("BackgroundEscolhido")})`
 }
+
