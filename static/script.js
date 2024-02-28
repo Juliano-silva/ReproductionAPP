@@ -8,6 +8,16 @@ var TituloError = document.createElement("h1")
 var Diva = document.createElement("div")
 var TituloError = document.createElement("h1")
 
+function RandomColor(tamanho) {
+    var Primeiro = "#"
+    var caracter = "0123456789abcdef"
+    for (var i = 0; i < tamanho; i++) {
+        Primeiro += caracter.charAt(Math.floor(Math.random() * caracter.length))
+    }
+    return Primeiro;
+}
+
+
 fetch("/DadosMusic").then(function (response) {
     response.json().then((data) => {
         var MinhasMusicas = JSON.parse(JSON.stringify(data))
@@ -124,6 +134,7 @@ fetch("/DadosMusic").then(function (response) {
             // Remove
             Remove.value = "🗑️"
             Remove.type = "submit"
+            Remove.classList = i
             Remove.id = MinhasMusicas.Name_Music[i]
             // Edit
             Edit.value = "✎"
@@ -249,11 +260,12 @@ fetch("/DadosMusic").then(function (response) {
             function Remover() {
                 location.reload()
                 var value = this.id;
+                var valueClass = this.className
                 $.ajax({
                     url: '/RemoveFunc',
                     type: 'POST',
                     contentType: 'application/json',
-                    data: JSON.stringify({ 'value': value })
+                    data: JSON.stringify({ 'value': value, "Img": valueClass })
                 });
             }
 
@@ -303,8 +315,8 @@ fetch("/DadosMusic").then(function (response) {
                         document.querySelectorAll(`#Image${Ids}`).forEach(el => el.src = Edit_Load[j].Image)
                     }
                 }
+                document.addEventListener("load", EditLoad())
             }
-            document.addEventListener("load", EditLoad())
             // Velocidade
             var PlayBack = document.getElementById("PlayBack")
             document.getElementById("NormalPlayBack").addEventListener("click", function () {
@@ -385,10 +397,14 @@ fetch("/DadosMusic").then(function (response) {
                     SelectPlay.append(PlaylistH1)
                     for (var Play = 0; Play < JSON.parse(LocalPlaylist).length; Play++) {
                         var OptionPlay = document.createElement("li")
-                        OptionPlay.innerText = JSON.parse(LocalPlaylist)[Play].Name
+                        var Option_Titulo = document.createElement("h1")
+                        var Div_Disco = document.createElement("div")
+                        Option_Titulo.innerText = JSON.parse(LocalPlaylist)[Play].Name
                         OptionPlay.id = MusicIDs
                         OptionPlay.className = Play
                         SelectPlay.id = "Playlist_List"
+                        OptionPlay.style.background = RandomColor(6)
+                        Div_Disco.id = "Div_Disco"
                         OptionPlay.addEventListener("click", function () {
                             alert("Música Adicionada com Sucesso")
                             var Edit;
@@ -400,6 +416,7 @@ fetch("/DadosMusic").then(function (response) {
                             Edit[this.className].Lista += this.id + ","
                             localStorage.setItem("Playlist", JSON.stringify(Edit))
                         })
+                        OptionPlay.append(Div_Disco, Option_Titulo)
                         SelectPlay.append(OptionPlay)
                         document.getElementById("PlaylistHome").append(SelectPlay)
                     }
@@ -495,4 +512,3 @@ function Abrir_Player() {
 if (localStorage.BackgroundEscolhido) {
     document.querySelector("body").style.backgroundImage = `url(${localStorage.getItem("BackgroundEscolhido")})`
 }
-

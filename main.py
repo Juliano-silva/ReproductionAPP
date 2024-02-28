@@ -94,6 +94,12 @@ def AddUrl():
 def Remover():
     datas = request.get_json()
     result = datas['value']
+    Image = datas['Img']
+    with open ("C:/Reproduction_Folder/Img.json",'r',encoding="utf-8") as my_json:
+        data = json.load(my_json)
+        delete = data['Imgs'][int(Image)]
+    with open("C:/Reproduction_Folder/Img.json",'w',encoding="utf-8") as files:
+        files.write(str(data).replace(delete,"").replace("'',","").replace("'",'"'))
     os.remove(Diretorio + "\\" + result)
     return '',201
 
@@ -119,5 +125,5 @@ def Music():
 
 
 if __name__ == "__main__":
-    # webview.start(debug=False,private_mode=False,http_server=True)
-    app.run(debug=False,port=5052)
+    webview.start(debug=False,private_mode=False,http_server=True)
+    # app.run(debug=False,port=5052)

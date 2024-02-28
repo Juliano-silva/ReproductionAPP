@@ -71,7 +71,12 @@ i {
   display: none;
   width: 100%;
   height: 100vh;
+  overflow: auto;
   padding: 2vh;
+}
+
+#Corpo_Backgrounds::-webkit-scrollbar{
+  width: 0px;
 }
 
 
@@ -145,7 +150,7 @@ body {
 
 #Border>button:hover,
 #ButtonRemove:hover {
-  background: purple;
+  background: rgb(6, 6, 61);
 }
 
 button {
@@ -362,6 +367,7 @@ button {
   cursor: pointer;
   padding: 2vh;
   overflow: hidden;
+  height: 20vh;
 }
 
 #BodyPlaylist,
@@ -424,37 +430,44 @@ button {
   filter: opacity(0.8);
   padding: 2vh;
   font-family: 'Holtwood One SC', serif;
-}
-
-#Playlist_List>h1 {
-  color: yellow;
-  font-size: 5vh;
-  text-align: center;
+  margin-top: 3vh;
 }
 
 #Playlist_List>li {
-  filter: opacity(0.9);
-  text-align: center;
+  margin-top: 2vh;
   cursor: pointer;
-  font-size: 5vh;
-  height: 8vh;
-  width: 80%;
-  color: white;
-  margin: auto;
-  margin-top: 1vh;
-  word-wrap: break-word;
-  overflow: auto;
+  background-color: white;
   border-radius: 2vh;
+  width: 20%;
+  height: 40vh;
+  list-style: none;
+  overflow: auto;
 }
 
-#Playlist_List>li::-webkit-scrollbar {
+#Playlist_List>li::-webkit-scrollbar{
   width: 0px;
 }
 
-#Playlist_List>li:hover {
-  border: 0.1vh solid yellow;
-  background-color: #392875;
+#Playlist_List > li >h1 {
+  font-size: 3vh;
+  color: black;
+  text-shadow: 0.1vh 0.1vh 0.1vh white;
+  text-align: center;
+  display: block;
+  margin-top: 2vh;
+  word-break: break-all;
 }
+
+#Div_Disco{
+  background:url("./Arquivos/DiscVinil.png");
+  background-position: center;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  height: 30vh;
+  width: 100%;
+  margin-top: 2vh;
+}
+
 
 .Playlist_Itens {
   border: 0.2vh solid white;
@@ -669,7 +682,8 @@ button {
 
 #HeaderSidebar>h1,
 #Corpo_Backgrounds>h1,
-#Caixa_de_Sobre>h2 {
+#Caixa_de_Sobre>h2,
+#Playlist_List > h1 {
   color: #FFF;
   font-family: 'Holtwood One SC', serif;
   font-size: 4vh;
@@ -745,13 +759,6 @@ button {
   height: 35vh;
 }
 
-#TrásP {
-  margin-right: 20vh;
-}
-
-#FrenteP{
-  margin-left: 20vh;
-}
 
 #MusicaPrincipal::-webkit-scrollbar,#MyEdit::-webkit-scrollbar {
   width: 0px;
@@ -924,66 +931,32 @@ button {
   background-color: rgb(4, 80, 4);
 }
 
-/* Background Carrossel */
+/* Background */
 
-.wrapper {
+
+#BackgroundsC {
   display: flex;
-  max-width: 100%;
-  width: 100%;
-  height: 70vh;
-  align-items: center;
+  flex-flow: row wrap;
   justify-content: center;
-  text-align: center;
-  position: relative;
+  height: 100vh;
+  width: 100%;
+  border: 0.2vh solid transparent;
+  overflow: auto;
 }
 
-.wrapper i.button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  height: 36px;
-  width: 36px;
-  background-color: #343f4f;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 36px;
-  color: #fff;
-  font-size: 15px;
-  transition: all 0.3s linear;
-  z-index: 100;
+#BackgroundsC::-webkit-scrollbar{
+  width: 0px;
+}
+
+#BackgroundsC > img {
+  width: 40vh;
+  height: 40vh;
+}
+
+#BackgroundsC > img:hover{
   cursor: pointer;
-}
-
-i.button:active {
-  transform: scale(0.94) translateY(-50%);
-}
-
-i#prev {
-  left: 25px;
-}
-
-i#next {
-  right: 25px;
-}
-
-.image-container {
-  height: 100%;
-  max-width: 100%;
-  width: 100%;
-  overflow: hidden;
-}
-
-.image-container #BackgroundsC {
-  display: flex;
-  height: 100%;
-  width: 100%;
-  transition: all 0.4s ease;
-}
-
-#BackgroundsC img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
+  border-radius: 50%;
+  border: 0.4vh solid red;
 }
 
 /* Sobre */
@@ -1213,6 +1186,8 @@ i#next {
 #PlaylistButton {
   width: 70vh;
   text-align: center;
+  margin-left: 2vh;
+  margin-top: 2vh;
 }
 
 #PlaylistInputBody {

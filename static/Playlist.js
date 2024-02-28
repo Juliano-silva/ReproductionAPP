@@ -135,8 +135,44 @@ fetch("/DadosMusic").then(function (response) {
                 // Imagens
                 Image.id = `Image${Id}`
                 Image.className = "Image"
-                var EscolhaImg = Math.floor(Math.random() * MinhasMusicas.Galeria.length)
-                TPImage.src = ImagesPrincipal.src = Image.src = "/Fotos/" + MinhasMusicas.Galeria[EscolhaImg]
+                fetch("/ThumbJson").then(function (response) {
+                    response.json().then((datas) => {
+                        for (var i = 0; i < datas.Imgs.length; i++) {
+                            var Image = window.document.querySelector(`img#Image${i}`)
+                            var ImagesPrincipal = document.querySelector("img#ImagesPrincipal")
+                            var TPImage = document.querySelector("img#TPImage")
+                            $("label.LabelPlayePause").on("click", function () {
+                                var Id = parseInt(($(this).attr("id")).replace("Labeis", ""))
+                                ImagesPrincipal.src = TPImage.src = datas.Imgs[Id]
+                                // Frente
+                                $(`button#Frente,button#FrenteP`).on("click", function () {
+                                    if (Id < MinhasMusicas.Name_Music.length) {
+                                        Id++
+                                        ImagesPrincipal.src = TPImage.src = datas.Imgs[Id]
+                                    } else {
+                                        ImagesPrincipal.src = TPImage.src = datas.Imgs[Id = 0]
+                                    }
+                                })
+    
+                                ORIGINAL.addEventListener("ended", function () {
+                                    Id++
+                                    ImagesPrincipal.src = TPImage.src = datas.Imgs[Id]
+                                })
+    
+                                // Trás
+                                $(`button#TrásP,buttonTrás`).on("click", function () {
+                                    if (Id >= 0) {
+                                        Id--
+                                        ImagesPrincipal.src = TPImage.src = datas.Imgs[Id]
+                                    } else {
+                                        ImagesPrincipal.src = TPImage.src = datas.Imgs[Id = 0]
+                                    }
+                                })
+                            })
+                            Image.src = datas.Imgs[i]
+                        }
+                    })
+                })
                 var Contador = localStorage.getItem("Tocandas")
                 if (Contador < 0 || Contador === null) {
                     var count = 0
